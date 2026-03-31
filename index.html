@@ -1,9 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ShackDesk</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShackDesk — Windows desktop utilities for amateur radio operators. Built by N4TEK for digital mode and EMCOMM use.">
+  <title>ShackDesk — Tools for the Amateur Radio Operator</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>ShackDesk is live 🚀</h1>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot"></span>ShackDesk
+      </a>
+      <ul class="nav-links">
+        <li><a href="/portpane/">PortPane</a></li>
+        <li><a href="/rigcheck/">RigCheck</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/portpane/download" class="nav-cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-callsign">N4TEK / My Computer Guru LLC</div>
+      <h1>ShackDesk</h1>
+      <p class="lead">Windows desktop utilities for amateur radio operators. Built offline-first, for the shack and the field.</p>
+      <div class="hero-actions">
+        <a href="/portpane/download" class="btn btn-primary">Download PortPane</a>
+        <a href="/about/" class="btn btn-outline">About the Project</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="page">
+
+    <div class="section">
+      <div class="section-label">The Suite</div>
+      <div class="app-grid">
+
+        <a href="/portpane/" class="app-card">
+          <div class="app-card-name">PortPane</div>
+          <div class="app-card-tagline">"Takes the pain out of ports."</div>
+          <p class="app-card-desc">Audio device and COM port display and switching for digital mode operators. One click to load your profile and get on the air.</p>
+          <div class="app-card-link">Learn more →</div>
+        </a>
+
+        <div class="app-card muted">
+          <div class="app-card-name">
+            RigCheck
+            <span class="badge badge-dev">In development</span>
+          </div>
+          <div class="app-card-tagline">"Know your rig is ready."</div>
+          <p class="app-card-desc">Serial CAT communication diagnostics using Hamlib. Verify your radio connection before it matters.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Design Philosophy</div>
+      <div class="card">
+        <p>ShackDesk apps are <strong>offline-first</strong>. No internet connection required, no telemetry without your consent, no nagware. Designed to work in the field, at a club station, or on a go-kit laptop just as well as at your home shack.</p>
+        <p>Source code is publicly available on <a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a>. Contributions welcome.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </footer>
+
 </body>
 </html>
