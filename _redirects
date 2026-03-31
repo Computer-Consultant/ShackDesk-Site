@@ -1,0 +1,52 @@
+# =============================================================================
+# ShackDesk.com — Cloudflare Pages Redirect Rules
+# Project:  ShackDesk by N4TEK / My Computer Guru LLC
+#           https://github.com/Computer-Consultant/ShackDesk-Site
+# Purpose:  URL redirect and rewrite rules processed at the Cloudflare edge.
+#           Redirects here supplement the Cloudflare dashboard Redirect Rule
+#           that handles www → root (which is managed in the dashboard, not
+#           here, to preserve the wildcard path-capture behavior).
+# Format:   <source>  <destination>  <status>
+#           Source paths support * (wildcard) and :placeholder splats.
+#           Status 301 = permanent redirect (updates bookmarks/search index).
+#           Status 302 = temporary redirect (use sparingly).
+#           One rule per line. Lines starting with # are comments.
+#           Blank lines are ignored.
+# Warning:  Rules are matched top-to-bottom; the FIRST match wins.
+#           More specific paths must come before broader wildcard rules.
+#           Do NOT add a BOM or Windows line endings (CRLF) to this file.
+# Docs:     https://developers.cloudflare.com/pages/configuration/redirects/
+# Limit:    2,000 static redirects or 100 dynamic redirects (free tier).
+# Support:  https://github.com/Computer-Consultant/ShackDesk-Site/issues
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Sponsorship — stable, permanent destinations
+# -----------------------------------------------------------------------------
+
+/sponsor     https://github.com/sponsors/Computer-Tsu     301
+/donate      https://github.com/sponsors/Computer-Tsu     301
+
+# -----------------------------------------------------------------------------
+# Per-app short-links — stable, repo names are locked
+# Add remaining apps here when their repo names are finalized.
+# -----------------------------------------------------------------------------
+
+/portpane    https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/latest    301
+/rigcheck    https://github.com/Computer-Tsu/ShackDesk-RigCheck/releases/latest    301
+
+# -----------------------------------------------------------------------------
+# Not yet defined — destinations depend on decisions not yet made.
+# Add these once the target platform and per-app structure are settled.
+#
+# /download    → which app? rotate? landing page?          (302 when ready)
+# /releases    → which app? all apps index?                (302 when ready)
+# /changelog   → per-app; GitHub releases or dedicated?    (302 when ready)
+# /discuss     → per-app; GitHub Discussions or QRZ?       (302 when ready)
+# /support     → per-app; GitHub Discussions or QRZ?       (302 when ready)
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Legacy / typo safety (add entries here if you change a URL after launch)
+# Example: /dowload  /download  301
+# -----------------------------------------------------------------------------
