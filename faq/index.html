@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently asked questions about ShackDesk apps — safety, installation, PortPane, RigCheck, open source licensing.">
+  <title>FAQ — ShackDesk</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot"></span>ShackDesk
+      </a>
+      <ul class="nav-links">
+        <li><a href="/portpane/">PortPane</a></li>
+        <li><a href="/rigcheck/">RigCheck</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/" class="active">FAQ</a></li>
+        <li><a href="/portpane/download" class="nav-cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <h1>Frequently Asked Questions</h1>
+    <p class="lead" style="margin-top: 1rem;">Common questions about ShackDesk apps, safety, installation, and licensing.</p>
+
+    <div class="section">
+      <div class="section-label">Safety &amp; Trust</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="smartscreen">
+          <button class="faq-question" onclick="toggle(this)">
+            Windows shows a SmartScreen warning when I run a ShackDesk app. Is it safe?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. The SmartScreen warning appears because ShackDesk apps are independently developed software that is new to Microsoft's reputation system. It is not an indication of a virus or malware. To proceed, click <strong>More info</strong> then <strong>Run anyway</strong>.</p>
+            <p>ShackDesk apps will be code-signed as the project matures, which will reduce and eventually eliminate this warning. In the meantime, you can verify the integrity of any download by checking the SHA-256 hash posted alongside each release on GitHub. Source code is publicly available for anyone who wants to inspect it: <a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">github.com/Computer-Tsu</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="internet">
+          <button class="faq-question" onclick="toggle(this)">
+            Does ShackDesk connect to the internet?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>ShackDesk apps are designed to work fully offline. No internet connection is required for any core feature. Apps will never silently connect to any server without your knowledge.</p>
+            <p>The only optional network activity is anonymous telemetry, which is strictly opt-in and disabled by default. You can review exactly what would be sent before anything leaves your machine using <strong>Help → View Collected Data</strong>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="personal-data">
+          <button class="faq-question" onclick="toggle(this)">
+            Is my callsign, name, or personal information collected?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. ShackDesk apps do not collect your callsign, name, email address, IP address, hostname, or any personally identifiable information. Ever.</p>
+            <p>Optional telemetry (opt-in only) collects anonymous device identifiers — audio device and COM port names — to help improve hardware compatibility. See the <a href="/privacy/">Privacy page</a> for full details.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="emcomm">
+          <button class="faq-question" onclick="toggle(this)">
+            Can I trust ShackDesk apps on a go-kit or EMCOMM deployment laptop?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. ShackDesk apps are built specifically with EMCOMM deployments in mind. They are offline-first, lightweight, and do not require installation of additional runtimes beyond what ships with Windows. No background services, no startup delays, no internet dependency.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Installation &amp; Compatibility</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="windows-version">
+          <button class="faq-question" onclick="toggle(this)">
+            What version of Windows do I need?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Requirements vary by app. PortPane requires Windows 10 or Windows 11 (64-bit). Check each app's release page for specific system requirements.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="dotnet">
+          <button class="faq-question" onclick="toggle(this)">
+            Do I need to install anything else first?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>PortPane requires the .NET 8 runtime, which ships with Windows 11. On Windows 10, Windows will prompt you to download it automatically if it is not already present. No third-party software is required.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="com-ports">
+          <button class="faq-question" onclick="toggle(this)">
+            Why does the app need access to COM ports?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>COM port access is required to display active port assignments and switch between profiles. ShackDesk apps only read port information and switch assignments — they do not modify your radio's configuration or transmit anything over the air.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">PortPane</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="what-is-portpane">
+          <button class="faq-question" onclick="toggle(this)">
+            What is PortPane?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>PortPane displays your current audio device and COM port assignments in one place and lets you switch between saved profiles with a single click. It is designed for digital mode operators who regularly switch between modes, software, or radios and need a fast, reliable way to get the right configuration loaded without hunting through Windows settings.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="software-compat">
+          <button class="faq-question" onclick="toggle(this)">
+            Does PortPane work with WSJT-X, Fldigi, JS8Call, and other software?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>PortPane manages Windows audio device and COM port assignments at the system level — it works alongside any digital mode software. It does not integrate directly with any specific application; it simply ensures the right devices are assigned before you launch your software.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="unrecognized-device">
+          <button class="faq-question" onclick="toggle(this)">
+            My audio device isn't being recognized correctly. What should I do?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Open <strong>Help → View Collected Data</strong>. If you have opted into telemetry, you can send a report that includes your device identifiers to help us add it to the recognition database. You can also open a discussion on <a href="/portpane/support">GitHub Discussions</a> with your device's name and we will look into adding it.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">RigCheck <span class="badge badge-dev">In development</span></div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="what-is-rigcheck">
+          <button class="faq-question" onclick="toggle(this)">
+            What is RigCheck?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>RigCheck is a CAT communication diagnostic tool. It uses Hamlib to test serial communication with your radio and helps diagnose connection problems before or during an operating session. RigCheck is currently in development — no release is available yet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-when">
+          <button class="faq-question" onclick="toggle(this)">
+            When will RigCheck be available?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No release date has been announced yet. Watch the <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck" target="_blank" rel="noopener">GitHub repository</a> for announcements.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Open Source &amp; Licensing</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="open-source">
+          <button class="faq-question" onclick="toggle(this)">
+            Is ShackDesk open source?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. ShackDesk app source code is publicly available on GitHub. You are free to inspect, build, and contribute to the code. See each app's repository for license details.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="contribute">
+          <button class="faq-question" onclick="toggle(this)">
+            Can I contribute to ShackDesk?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Contributions are welcome. See the CONTRIBUTING.md file in each app's GitHub repository for guidelines. Community-maintained data files — such as the USB device database — are especially appreciated.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="club-use">
+          <button class="faq-question" onclick="toggle(this)">
+            Can I use ShackDesk at my club station or in an ARES group?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Personal and club use is covered under the standard license. See the license terms for each app on GitHub for details.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Still have questions?</div>
+      <div class="card">
+        <p>Open a discussion on GitHub — links are on each app's page. Bug reports and feature requests are welcome there too.</p>
+        <p style="margin-top: 0.75rem;"><a href="/portpane/support" class="btn btn-outline">PortPane Discussions</a></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function toggle(btn) {
+      var item = btn.parentElement;
+      item.classList.toggle('open');
+    }
+    // Open item if URL hash matches its id
+    if (location.hash) {
+      var el = document.querySelector(location.hash);
+      if (el && el.classList.contains('faq-item')) {
+        el.classList.add('open');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
+
+</body>
+</html>
