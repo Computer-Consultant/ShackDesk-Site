@@ -1,0 +1,76 @@
+# =============================================================================
+# ShackDesk.com — Cloudflare Pages HTTP Response Headers
+# Project:  ShackDesk by N4TEK / My Computer Guru LLC
+#           https://github.com/Computer-Consultant/ShackDesk-Site
+# Purpose:  Security headers and cache policy for all Pages responses.
+#           Cloudflare Pages reads this file from the repo root and applies
+#           headers at the edge before responses reach the browser.
+# Format:   Each block begins with a URL path pattern on its own line,
+#           followed by one "  Header-Name: value" line per header (two
+#           leading spaces required). Patterns are matched top-to-bottom;
+#           the FIRST matching block wins — more specific paths go first.
+# Warning:  Do NOT add a BOM or Windows line endings (CRLF) to this file.
+#           Cloudflare's parser requires Unix line endings (LF only).
+# Docs:     https://developers.cloudflare.com/pages/configuration/headers/
+# Privacy:  No user data is collected or transmitted via these headers.
+#           The CSP and permissions policy are intentionally restrictive.
+# Support:  https://github.com/Computer-Consultant/ShackDesk-Site/issues
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Static assets — aggressive long-term caching (content-hashed filenames)
+# Apply before the catch-all /* block so assets get their own cache policy.
+# These paths assume build output places versioned assets under /assets/.
+# Adjust the pattern if your build tool uses a different output directory.
+# -----------------------------------------------------------------------------
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# -----------------------------------------------------------------------------
+# Downloadable release files — cache for 1 hour, always revalidate
+# Adjust path if releases are served from a different location.
+# -----------------------------------------------------------------------------
+/downloads/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# -----------------------------------------------------------------------------
+# All other responses (HTML pages, root, etc.)
+# -----------------------------------------------------------------------------
+/*
+  # -- Caching ----------------------------------------------------------------
+  # HTML pages must never be cached stale; assets above get long-term caching.
+  Cache-Control: no-cache
+
+  # -- Clickjacking protection ------------------------------------------------
+  # Prevents shackdesk.com from being embedded in an iframe on another domain.
+  X-Frame-Options: DENY
+
+  # -- MIME sniffing protection -----------------------------------------------
+  # Forces the browser to honor the declared Content-Type, not guess.
+  X-Content-Type-Options: nosniff
+
+  # -- Referrer policy --------------------------------------------------------
+  # Sends the full URL as referrer within shackdesk.com; only the origin to
+  # external HTTPS sites; nothing to HTTP sites.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # -- Permissions policy -----------------------------------------------------
+  # Explicitly disables browser features ShackDesk.com does not use.
+  # Add "microphone=*" or "camera=*" only if a future page requires them.
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=()
+
+  # -- Content Security Policy ------------------------------------------------
+  # Restricts what resources the browser is allowed to load.
+  # 'self'            — same origin only
+  # fonts.googleapis  — if you add Google Fonts later (remove if not needed)
+  # cdn.jsdelivr.net  — if you add a CDN-hosted JS library (remove if not needed)
+  # Tighten or expand these directives as the site grows.
+  # WARNING: Adding 'unsafe-inline' to script-src defeats XSS protection.
+  #          Use nonces or hashes instead if inline scripts are required.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+  # -- Cross-origin isolation (future-proofing) --------------------------------
+  # Required if you ever use SharedArrayBuffer or high-resolution timers.
+  # Safe to include now; has no visible effect on a standard static site.
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
