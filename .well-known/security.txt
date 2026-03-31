@@ -1,0 +1,20 @@
+# =============================================================================
+# ShackDesk.com — /.well-known/security.txt
+# Project:  ShackDesk by N4TEK / My Computer Guru LLC
+#           https://github.com/Computer-Consultant/ShackDesk-Site
+# Purpose:  Standardized security disclosure contact information per RFC 9116.
+#           Tells security researchers how to responsibly report
+#           vulnerabilities in ShackDesk apps or the shackdesk.com website.
+# Format:   RFC 9116 (https://www.rfc-editor.org/rfc/rfc9116)
+# Warning:  The Expires field must be updated at least once per year.
+#           An expired security.txt is treated as absent by some tools.
+#           Update Expires before: 2026-12-31
+# Docs:     https://securitytxt.org/
+# Support:  https://github.com/Computer-Consultant/ShackDesk-Site/issues
+# =============================================================================
+
+Contact: https://github.com/Computer-Tsu/ShackDesk-PortPane/security/advisories/new
+Expires: 2026-12-31T23:59:59Z
+Policy: https://github.com/Computer-Tsu/ShackDesk-PortPane/blob/main/SECURITY.md
+Canonical: https://shackdesk.com/.well-known/security.txt
+Preferred-Languages: en
