@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ShackDesk.com — sitemap.xml
+  Project:  ShackDesk by N4TEK / My Computer Guru LLC
+            https://github.com/Computer-Consultant/ShackDesk-Site
+  Purpose:  Tells search engines about all indexable pages on shackdesk.com
+            and their relative update frequency and priority.
+  Format:   XML Sitemap Protocol 0.9 (https://www.sitemaps.org/protocol.html)
+  Warning:  Update lastmod dates and add new <url> entries whenever a page
+            is added or significantly updated. Submit to Google Search Console
+            at https://search.google.com/search-console after launch.
+  Note:     Redirect-only paths (/portpane/download, /sponsor, etc.) are
+            intentionally excluded — only canonical HTML pages are listed.
+  Support:  https://github.com/Computer-Consultant/ShackDesk-Site/issues
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://shackdesk.com/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Product pages -->
+  <url>
+    <loc>https://shackdesk.com/portpane/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://shackdesk.com/rigcheck/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://shackdesk.com/about/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://shackdesk.com/faq/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy -->
+  <url>
+    <loc>https://shackdesk.com/privacy/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!--
+    Add new pages here as they are created. Example:
+    <url>
+      <loc>https://shackdesk.com/elmermate/</loc>
+      <lastmod>YYYY-MM-DD</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+    </url>
+  -->
+
+</urlset>
