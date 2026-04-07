@@ -1,0 +1,12 @@
+# Normalize all text files to LF on commit.
+# Cloudflare Pages _headers and _redirects parsers require LF line endings.
+* text=auto eol=lf
+
+# Explicitly binary — never convert
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
