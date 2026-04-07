@@ -1,0 +1,56 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# ShackDesk Site — PortPane Update Feed
+#
+# Triggered by repository_dispatch from Computer-Tsu/ShackDesk-PortPane after
+# a release build completes. Updates the per-channel update JSON file so that
+# installed copies of PortPane can discover the new version.
+#
+# Dispatch event type : portpane-release
+# Dispatch payload    : channel, version, sha256, download_url
+# ──────────────────────────────────────────────────────────────────────────────
+name: Update PortPane Feed
+
+on:
+  repository_dispatch:
+    types: [ portpane-release ]
+
+jobs:
+  update-feed:
+    name: Update ${{ github.event.client_payload.channel }} feed
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Write update JSON
+        env:
+          CHANNEL:      ${{ github.event.client_payload.channel }}
+          VERSION:      ${{ github.event.client_payload.version }}
+          SHA256:       ${{ github.event.client_payload.sha256 }}
+          DOWNLOAD_URL: ${{ github.event.client_payload.download_url }}
+        run: |
+          FILE="portpane/update/${CHANNEL}.json"
+          cat > "$FILE" <<EOF
+          {
+            "version": "${VERSION}",
+            "url": "${DOWNLOAD_URL}",
+            "sha256": "${SHA256}",
+            "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v${VERSION}",
+            "channel": "${CHANNEL}",
+            "updated": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+          echo "Written: $FILE"
+          cat "$FILE"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add portpane/update/
+          git commit -m "update: PortPane ${{ github.event.client_payload.channel }} feed → v${{ github.event.client_payload.version }}"
+          git push
