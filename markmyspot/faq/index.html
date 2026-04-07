@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MarkMySpot FAQ — how it works, location permissions, offline use, Maidenhead grid squares, and PWA installation.">
+  <title>MarkMySpot FAQ — ShackDesk</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot" aria-hidden="true"></span>ShackDesk
+      </a>
+      <ul class="nav-links" aria-label="Main navigation">
+        <li><a href="/portpane/">PortPane</a></li>
+        <li><a href="/rigcheck/">RigCheck</a></li>
+        <li><a href="/markmyspot/" class="active" aria-current="page">MarkMySpot</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="https://shackdesk-markmyspot.pages.dev" target="_blank" rel="noopener" class="nav-cta">Open App</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <h1>MarkMySpot — FAQ</h1>
+    <p class="lead" style="margin-top: 1rem;">Common questions about how MarkMySpot works, location permissions, offline use, and PWA installation.</p>
+
+    <div class="section">
+      <div class="section-label">How it works</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="what-is">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            What does MarkMySpot do?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>MarkMySpot retrieves your current GPS location from your device and displays it in formats useful for amateur radio operators — Maidenhead grid square, decimal degrees (lat/lon), and degrees/minutes/seconds (DMS). You can copy all three formats to your clipboard with one tap, ready to paste into a log, message, or spot report.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="what-is-grid">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            What is a Maidenhead grid square?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>The Maidenhead Locator System divides the world into a grid of named squares used by amateur radio operators to describe location concisely. A 6-character grid square like <span class="mono">EL89tr</span> identifies an area roughly 5km × 2.5km. Grid squares are used in contest exchanges (especially VHF/UHF), POTA and SOTA activations, satellite pass predictions, APRS, and EMCOMM spot reports.</p>
+            <p>MarkMySpot calculates your 6-character grid square directly from your GPS coordinates — no internet lookup required.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="accuracy">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            How accurate is the location?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Accuracy depends on your device and environment. MarkMySpot displays the accuracy estimate reported by your device alongside the coordinates. On a phone with GPS outdoors, accuracy is typically 3–10 metres — more than sufficient for a 6-character grid square. Indoors or on a desktop browser using IP-based location, accuracy may be hundreds of metres or more.</p>
+            <p>The app shows a plain-language accuracy indicator so you always know how precise the reading is.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="no-location">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            The app says it can't get my location. What do I do?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>A few things to check:</p>
+            <ul style="margin: 0.5rem 0 0.5rem 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.9;">
+              <li>Make sure you granted location permission when prompted. If you denied it, you'll need to reset it in your browser or device settings.</li>
+              <li>On iOS, go to Settings → Privacy → Location Services → your browser → set to "While Using".</li>
+              <li>On Android, go to Settings → Apps → your browser → Permissions → Location → Allow.</li>
+              <li>If you're indoors with no GPS signal, try moving closer to a window or stepping outside.</li>
+              <li>Use the Refresh button to re-request your location without reloading the page.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Privacy &amp; data</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="location-stored">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            Does MarkMySpot store or transmit my location?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. Your location is used only to calculate and display the coordinate formats on screen. It is never sent to any server, never stored in a database, and never leaves your device. There is no backend — all calculations happen entirely in your browser.</p>
+            <p>Each time you open the app or tap Refresh, a fresh location request is made. Nothing is retained between sessions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="no-account">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            Do I need an account?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. MarkMySpot requires no account, no registration, and no login. Open the app and it works.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="tracking">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            Does the app track me or use analytics?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. There are no analytics scripts, no tracking pixels, no cookies, and no telemetry in MarkMySpot. Your usage is not monitored in any way.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Offline &amp; PWA</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="offline">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            Does it work offline?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes — after the first load. MarkMySpot installs a service worker that caches the app locally. On subsequent visits, the app loads from your device even with no network connection. GPS location does not require internet — it uses your device's hardware directly.</p>
+            <p>This makes it suitable for EMCOMM deployments, POTA activations, and any field situation where connectivity is unreliable.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="install-pwa">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            How do I install it on my phone?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Android (Chrome):</strong> Open the app in Chrome. Tap the three-dot menu → "Add to Home screen". The app installs and launches like a native app.</p>
+            <p><strong>iOS (Safari):</strong> Open the app in Safari. Tap the Share button (box with arrow) → "Add to Home Screen". The app appears on your home screen and launches without the browser UI.</p>
+            <p>No app store required. No download. The installed app works offline after installation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="desktop">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            Does it work on a desktop browser?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. MarkMySpot runs in any modern browser on Windows, Mac, or Linux. Desktop browsers use either GPS (if your hardware supports it) or network-based location, which is less precise. For best accuracy use it on a phone with GPS hardware outdoors.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Field use</div>
+      <div class="faq-group">
+
+        <div class="faq-item" id="emcomm">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            Is MarkMySpot suitable for EMCOMM and ARES activations?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. MarkMySpot is designed specifically for field use — offline-capable, no account or network required for operation, readable on a phone screen outdoors, and produces coordinates in formats directly usable in Winlink messages, ICS forms, and verbal spot reports.</p>
+            <p>Install it on your go-kit phone before deployment. It will work without any network connection once installed.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="copy-format">
+          <button class="faq-question" aria-expanded="false" onclick="toggle(this)">
+            What does the clipboard copy contain?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>The copy button produces a labeled multi-line block containing all three formats, for example:</p>
+            <pre style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.82rem; margin-top: 0.5rem; overflow-x: auto;">Grid: EL89tr
+Lat/Lon: 29.651300, -82.324900
+DMS: 29°39'04.7"N 82°19'29.6"W</pre>
+            <p style="margin-top: 0.75rem;">This format is ready to paste directly into a Winlink message, a log entry, or a spot report.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Still have questions?</div>
+      <div class="card">
+        <p>MarkMySpot's source code is on GitHub. The repository is currently private during development. Questions and feedback can be directed to the <a href="/portpane/support">ShackDesk PortPane Discussions</a> in the meantime — mention MarkMySpot in your post.</p>
+        <p style="margin-top: 0.75rem;"><a href="/markmyspot/" class="btn btn-outline">Back to MarkMySpot</a></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="/sponsor">Sponsor</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    function toggle(btn) {
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    }
+    if (location.hash) {
+      var el = document.querySelector(location.hash);
+      if (el && el.classList.contains('faq-item')) {
+        el.classList.add('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
+
+</body>
+</html>

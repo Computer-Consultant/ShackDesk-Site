@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MarkMySpot by ShackDesk — Maidenhead grid square, lat/lon, and field-ready coordinates on any device. Free PWA for amateur radio operators.">
+  <title>MarkMySpot — ShackDesk</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot" aria-hidden="true"></span>ShackDesk
+      </a>
+      <ul class="nav-links" aria-label="Main navigation">
+        <li><a href="/portpane/">PortPane</a></li>
+        <li><a href="/rigcheck/">RigCheck</a></li>
+        <li><a href="/markmyspot/" class="active" aria-current="page">MarkMySpot</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="https://shackdesk-markmyspot.pages.dev" target="_blank" rel="noopener" class="nav-cta">Open App</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="product-hero">
+    <div class="product-hero-inner">
+      <div class="product-tagline">ShackDesk — "Your location, in ham-friendly formats."</div>
+      <h1>MarkMySpot</h1>
+      <p class="lead">Maidenhead grid square, decimal degrees, and DMS coordinates — instantly, on any device, no account required.</p>
+      <div class="product-actions">
+        <a href="https://shackdesk-markmyspot.pages.dev" target="_blank" rel="noopener" class="btn btn-primary">Open App</a>
+        <a href="/markmyspot/faq/" class="btn btn-outline">FAQ &amp; Help</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="page">
+
+    <div class="section">
+      <div class="section-label">What it does</div>
+      <p>MarkMySpot retrieves your current GPS location from the browser and displays it in the formats amateur radio operators actually use. One tap gets you your Maidenhead grid square — the format needed for contest exchanges, POTA activations, satellite passes, and EMCOMM spot reports. No typing, no conversion tools, no internet required after the first load.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Features</div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-title">Maidenhead Grid Square</div>
+          <p class="feature-desc">6-character precision grid square (e.g. <span class="mono">EL89tr</span>) — the format used in contest exchanges, POTA, satellite, and EMCOMM reporting.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Decimal Degrees</div>
+          <p class="feature-desc">Standard lat/lon to 6 decimal places. Ready to paste into logging software, APRS, or a spot report.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title">DMS Format</div>
+          <p class="feature-desc">Degrees, minutes, seconds with N/S/E/W — the traditional format for paper logs and verbal reporting.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Copy to Clipboard</div>
+          <p class="feature-desc">One tap copies a labeled multi-line block — grid square, lat/lon, and DMS — ready to paste into a log, message, or Winlink form.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Offline Capable</div>
+          <p class="feature-desc">Works after the first load with no network. Designed for field use where connectivity is unreliable or absent.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-title">Installable PWA</div>
+          <p class="feature-desc">Add to your home screen on Android or iOS. Launches like a native app — no app store, no download, no account.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Field design</div>
+      <div class="card">
+        <p>MarkMySpot is built for outdoor use on a phone screen. Large grid square display, high-contrast dark theme, and a minimal UI — location data front and center. Clear accuracy reporting and plain-language error messages with retry for when GPS takes a moment to settle.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">No backend. No account. No tracking.</div>
+      <div class="card">
+        <p>All logic runs in the browser. MarkMySpot does not send your location to any server, does not require an account, and does not store your coordinates anywhere outside your device. Your location is used only to calculate and display the formats on screen.</p>
+        <p style="margin-top: 0.75rem;">See the <a href="/privacy/">ShackDesk privacy policy</a> for full details.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Technical</div>
+      <div class="card">
+        <p><span class="label">Platform</span><br>Progressive Web App — runs in any modern browser on Android, iOS, or desktop</p>
+        <hr>
+        <p><span class="label">Requirements</span><br>Browser with GPS/location support. No installation required. No account. No backend.</p>
+        <hr>
+        <p><span class="label">Stack</span><br><span class="mono">React 18 · TypeScript · Vite · Workbox PWA · Cloudflare Pages</span></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Part of the ShackDesk suite</div>
+      <div class="app-grid">
+        <a href="/portpane/" class="app-card">
+          <div class="app-card-name">PortPane</div>
+          <div class="app-card-tagline">"Takes the pain out of ports."</div>
+          <p class="app-card-desc">Audio device and COM port display and switching for digital mode operators.</p>
+          <div class="app-card-link">Learn more →</div>
+        </a>
+        <div class="app-card muted">
+          <div class="app-card-name">RigCheck <span class="badge badge-dev">In development</span></div>
+          <div class="app-card-tagline">"Know your rig is ready."</div>
+          <p class="app-card-desc">Serial CAT communication diagnostics using Hamlib.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
