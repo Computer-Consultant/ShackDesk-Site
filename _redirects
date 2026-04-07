@@ -21,14 +21,20 @@
 # =============================================================================
 
 # -----------------------------------------------------------------------------
-# Per-app download and support — 302 temporary, destinations will mature
-# More specific paths first — these must come before any broader rules
+# Per-app subpath redirects — more specific paths must come first
+# 302 temporary — destinations expected to mature over time
 # -----------------------------------------------------------------------------
 
+# PortPane — Windows desktop app
 /portpane/download    https://github.com/Computer-Tsu/ShackDesk-PortPane/releases             302
 /portpane/support     https://github.com/Computer-Tsu/ShackDesk-PortPane/discussions          302
+
+# RigCheck — Windows desktop app (in development, no release yet)
 /rigcheck/download    https://github.com/Computer-Tsu/ShackDesk-RigCheck/releases/latest      302
 /rigcheck/support     https://github.com/Computer-Tsu/ShackDesk-RigCheck/discussions          302
+
+# MarkMySpot — PWA, opens live web app directly (no traditional download)
+/markmyspot/app       https://shackdesk-markmyspot.pages.dev                                  302
 
 # -----------------------------------------------------------------------------
 # Sponsorship — stable, permanent destinations
@@ -41,11 +47,11 @@
 # Not yet defined — destinations depend on decisions not yet made.
 # Add these once the target platform and per-app structure are settled.
 #
-# /download    → which app? rotate? landing page?          (302 when ready)
-# /releases    → which app? all apps index?                (302 when ready)
-# /changelog   → per-app; GitHub releases or dedicated?    (302 when ready)
-# /discuss     → per-app; GitHub Discussions or QRZ?       (302 when ready)
-# /support     → per-app; GitHub Discussions or QRZ?       (302 when ready)
+# /download    → which app? landing page?                    (302 when ready)
+# /releases    → which app? all apps index?                  (302 when ready)
+# /changelog   → per-app; GitHub releases or dedicated?      (302 when ready)
+# /discuss     → per-app; GitHub Discussions or QRZ?         (302 when ready)
+# /support     → per-app; GitHub Discussions or QRZ?         (302 when ready)
 # -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------
