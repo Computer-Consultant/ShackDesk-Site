@@ -74,7 +74,7 @@
   # (Google Fonts CDN would transmit visitor IPs to Google).
   # WARNING: Adding 'unsafe-inline' to script-src defeats XSS protection.
   #          Use nonces or hashes instead if inline scripts are required.
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://telemetry.shackdesk.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
 
   # -- Cross-origin isolation (future-proofing) --------------------------------
   # Required if you ever use SharedArrayBuffer or high-resolution timers.
