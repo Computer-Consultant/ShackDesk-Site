@@ -21,19 +21,21 @@
 # =============================================================================
 
 # -----------------------------------------------------------------------------
+# Per-app download and support — 302 temporary, destinations will mature
+# More specific paths first — these must come before any broader rules
+# -----------------------------------------------------------------------------
+
+/portpane/download    https://github.com/Computer-Tsu/ShackDesk-PortPane/releases             302
+/portpane/support     https://github.com/Computer-Tsu/ShackDesk-PortPane/discussions          302
+/rigcheck/download    https://github.com/Computer-Tsu/ShackDesk-RigCheck/releases/latest      302
+/rigcheck/support     https://github.com/Computer-Tsu/ShackDesk-RigCheck/discussions          302
+
+# -----------------------------------------------------------------------------
 # Sponsorship — stable, permanent destinations
 # -----------------------------------------------------------------------------
 
 /sponsor     https://github.com/sponsors/Computer-Tsu     301
 /donate      https://github.com/sponsors/Computer-Tsu     301
-
-# -----------------------------------------------------------------------------
-# Per-app short-links — stable, repo names are locked
-# Add remaining apps here when their repo names are finalized.
-# -----------------------------------------------------------------------------
-
-/portpane    https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/latest    301
-/rigcheck    https://github.com/Computer-Tsu/ShackDesk-RigCheck/releases/latest    301
 
 # -----------------------------------------------------------------------------
 # Not yet defined — destinations depend on decisions not yet made.
