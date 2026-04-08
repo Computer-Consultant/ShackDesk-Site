@@ -704,6 +704,23 @@ hr {
 }
 
 /* -----------------------------------------------------------------------------
+   Screenshots
+   ----------------------------------------------------------------------------- */
+.screenshots {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.screenshot {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  display: block;
+}
+
+/* -----------------------------------------------------------------------------
    Screenshot placeholder
    ----------------------------------------------------------------------------- */
 .screenshot-placeholder {
