@@ -1,8 +1,8 @@
 {
   "version": "0.5.6-beta",
   "url": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-beta/PortPane-0.5.6-beta-win-x64.exe",
-  "sha256": "4467fa6e02a6bbe15e1762bf07a884d64aaf5dc6adc1c153f1e0027e68fd4c57",
+  "sha256": "5e30fcefe0acc5b0e72cbea0568877a073a5385923763c10c22a8a30ae0ead01",
   "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v0.5.6-beta",
   "channel": "beta",
-  "updated": "2026-04-09T14:44:22Z"
+  "updated": "2026-04-09T15:10:23Z"
 }
