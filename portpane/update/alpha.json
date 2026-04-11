@@ -1,8 +1,8 @@
 {
-  "version": "0.5.6-alpha.20260411-1523",
-  "url": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-alpha/PortPane-0.5.6-alpha.20260411-1523-win-x64.exe",
-  "sha256": "3075753a45e964c068ba58fec2d2392f5a4c3b650a06c2915f9f52507ca0252b",
-  "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v0.5.6-alpha.20260411-1523",
+  "version": "0.5.6-alpha-installer-test",
+  "url": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/v0.5.6-alpha-installer-test/PortPane-v0.5.6-alpha-installer-test-win-x64.exe",
+  "sha256": "bfbf8b45853e3334afed2db2d41ceafde00da722ed5855459169483c55d521bb",
+  "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v0.5.6-alpha-installer-test",
   "channel": "alpha",
-  "updated": "2026-04-11T15:26:00Z"
+  "updated": "2026-04-11T15:31:04Z"
 }
