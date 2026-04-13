@@ -1,0 +1,12 @@
+{
+  "Assets": [
+    {
+      "PackageId": "PortPane",
+      "Version": "0.5.7-alpha.202604130342",
+      "Type": "Full",
+      "FileName": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-alpha/PortPane-0.5.7-alpha.202604130342-win-x64-full.nupkg",
+      "SHA256": "07674AF35BC1027E81668287F73657E909FD0BCC649C02CCAA74D213C618F004",
+      "NotesMarkdown": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/latest-alpha"
+    }
+  ]
+}
