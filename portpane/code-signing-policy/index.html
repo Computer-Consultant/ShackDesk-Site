@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PortPane code signing policy — how official ShackDesk builds are produced, signed, and published.">
+  <title>PortPane Code Signing Policy — ShackDesk</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot"></span>ShackDesk
+      </a>
+      <ul class="nav-links">
+        <li><a href="/portpane/" class="active">PortPane</a></li>
+        <li><a href="/rigcheck/">RigCheck</a></li>
+        <li><a href="/markmyspot/">MarkMySpot</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/sponsor" class="nav-sponsor">&#9829; Sponsor</a></li>
+        <li><a href="/portpane/download" class="nav-cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <h1>PortPane Code Signing Policy</h1>
+    <p class="lead" style="margin-top: 1rem;">This page describes how official ShackDesk PortPane builds are produced, signed, and published.</p>
+
+    <div class="section">
+      <div class="section-label">Source Code and Official Builds</div>
+      <div class="card">
+        <p>PortPane source code is licensed under MIT and is published in the public GitHub repository.</p>
+        <p>Official ShackDesk builds, optional registration/personalization, and support are separate offerings. These services do not reduce or override MIT rights for the source code.</p>
+        <p style="margin-top: 0.75rem;"><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane" target="_blank" rel="noopener">View the PortPane repository</a></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Current Status</div>
+      <div class="card">
+        <p>PortPane release artifacts are currently unsigned unless a release explicitly states otherwise.</p>
+        <p>ShackDesk's initial signing rollout is planned for <strong>alpha</strong> releases first, then <strong>beta</strong>. Stable releases may later use the same process or a separate signing process.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Build and Release Process</div>
+      <div class="card">
+        <p>Official PortPane builds are produced from the public GitHub repository using GitHub Actions workflow runs.</p>
+        <p>Release artifacts are published to GitHub Releases together with SHA-256 hashes.</p>
+        <p>When code signing is enabled for a channel, release notes should identify which artifacts were signed and where users can verify current signing status.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Project Roles</div>
+      <div class="card">
+        <p>Project owner and release maintainer: <strong>Mark McDow (N4TEK)</strong>, My Computer Guru LLC.</p>
+        <p>Source code, release workflows, and public documentation are maintained in the PortPane GitHub repository.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Related Documents</div>
+      <div class="card">
+        <p><a href="/privacy/">Privacy Policy</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/blob/dev/CODE_SIGNING_POLICY.md" target="_blank" rel="noopener">Repository Code Signing Policy</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/blob/dev/LICENSE-MIT.md" target="_blank" rel="noopener">MIT License</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/blob/dev/OFFICIAL_BUILDS_AND_SERVICES.md" target="_blank" rel="noopener">Official Builds and Services</a></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
