@@ -2,11 +2,16 @@
 # ShackDesk Site — PortPane Update Feed
 #
 # Triggered by repository_dispatch from Computer-Tsu/ShackDesk-PortPane after
-# a release build completes. Updates the per-channel update JSON file so that
-# installed copies of PortPane can discover the new version.
+# a release build completes. Updates the per-channel Velopack feed file so that
+# installed copies of PortPane can discover and download the new version.
 #
 # Dispatch event type : portpane-release
-# Dispatch payload    : channel, version, sha256, download_url
+# Dispatch payload    : channel, version, nupkg_url, nupkg_sha256
+#
+# Feed format: VelopackAssetFeed (Assets array) required by Velopack's
+# SimpleWebSource. File is served at portpane/update/{channel}/releases.win.json
+# which Velopack constructs automatically by appending "releases.win.json" to
+# the base endpoint URL configured in BrandingInfo.cs.
 # ──────────────────────────────────────────────────────────────────────────────
 name: Update PortPane Feed
 
@@ -26,22 +31,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Write update JSON
+      - name: Write Velopack feed JSON
         env:
           CHANNEL:      ${{ github.event.client_payload.channel }}
           VERSION:      ${{ github.event.client_payload.version }}
-          SHA256:       ${{ github.event.client_payload.sha256 }}
-          DOWNLOAD_URL: ${{ github.event.client_payload.download_url }}
+          NUPKG_URL:    ${{ github.event.client_payload.nupkg_url }}
+          NUPKG_SHA256: ${{ github.event.client_payload.nupkg_sha256 }}
         run: |
-          FILE="portpane/update/${CHANNEL}.json"
+          DIR="portpane/update/${CHANNEL}"
+          FILE="${DIR}/releases.win.json"
+          mkdir -p "$DIR"
           cat > "$FILE" <<EOF
           {
-            "version": "${VERSION}",
-            "url": "${DOWNLOAD_URL}",
-            "sha256": "${SHA256}",
-            "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v${VERSION}",
-            "channel": "${CHANNEL}",
-            "updated": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            "Assets": [
+              {
+                "PackageId": "PortPane",
+                "Version": "${VERSION}",
+                "Type": "Full",
+                "FileName": "${NUPKG_URL}",
+                "SHA256": "${NUPKG_SHA256}",
+                "NotesMarkdown": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v${VERSION}"
+              }
+            ]
           }
           EOF
           echo "Written: $FILE"
