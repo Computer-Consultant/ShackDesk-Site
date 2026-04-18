@@ -301,6 +301,25 @@ a:hover {
   text-decoration: none !important;
 }
 
+.nav-sponsor {
+  font-family: var(--font-display) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #c0547a !important;
+  border: 1.5px solid #c0547a !important;
+  padding: 0.3rem 0.85rem !important;
+  border-radius: var(--radius) !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+
+.nav-sponsor:hover {
+  background: #c0547a !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
 /* -----------------------------------------------------------------------------
    Page layout
    ----------------------------------------------------------------------------- */
