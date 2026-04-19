@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How to download and install PortPane — step-by-step guide to bypassing browser and Windows security warnings for unsigned alpha builds.">
+  <title>How to Download PortPane — ShackDesk</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-right: 0.6rem;
+      flex-shrink: 0;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .step-body { flex: 1; }
+    .step-body p { margin: 0.25rem 0 0; }
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border, #ccc);
+      border-radius: 4px;
+      background: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .screenshot-placeholder {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      background: #f0f0f0;
+      border: 1px dashed #bbb;
+      border-radius: 4px;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .screenshot-placeholder em { display: block; font-style: normal; font-weight: 600; }
+    .download-box {
+      background: var(--surface, #f8f8f8);
+      border: 1px solid var(--border, #ddd);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .download-box .filename {
+      font-family: monospace;
+      font-size: 0.95rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      padding: 0.15rem 0.4rem;
+    }
+    .os-note {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+    kbd {
+      display: inline-block;
+      padding: 0.1rem 0.4rem;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      background: #f4f4f4;
+      font-size: 0.85rem;
+      font-family: inherit;
+    }
+    img.screenshot {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 0.75rem 0 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot"></span>ShackDesk
+      </a>
+      <ul class="nav-links">
+        <li><a href="/portpane/" class="active">PortPane</a></li>
+        <li><a href="/rigcheck/">RigCheck</a></li>
+        <li><a href="/markmyspot/">MarkMySpot</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/sponsor" class="nav-sponsor">&#9829; Sponsor</a></li>
+        <li><a href="/portpane/download" class="nav-cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <h1>How to Download PortPane</h1>
+    <p class="lead" style="margin-top: 1rem;">PortPane is in alpha testing and is not yet code-signed. Unsigned apps trigger warnings in browsers and Windows before they will run. This page walks you through each step.</p>
+
+    <div class="card" style="border-left: 3px solid var(--accent); margin-bottom: 2rem;">
+      <p><strong>Why does this happen?</strong> Windows SmartScreen and browser download protection flag any executable that does not have a recognized publisher certificate. PortPane's code signing certificate is pending. In the meantime, you can safely proceed — all official builds are produced by automated GitHub Actions workflows from the <a href="https://github.com/Computer-Tsu/ShackDesk-PortPane" target="_blank" rel="noopener">public repository</a> and include a SHA-256 hash for verification. See the <a href="/portpane/code-signing-policy/">code signing policy</a> for details.</p>
+    </div>
+
+    <!-- ── Step 1: Download ─────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 1 — Download the installer</div>
+      <div class="download-box">
+        <p>Click the button below to download the latest alpha installer. The file is served directly from GitHub Releases.</p>
+        <p style="margin-top: 1rem;">
+          <a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-alpha/PortPane-win-Setup.exe"
+             class="btn btn-primary">Download PortPane Alpha Installer</a>
+        </p>
+        <p style="margin-top: 0.75rem;">File: <span class="filename">PortPane-win-Setup.exe</span></p>
+        <p class="os-note">Windows 10 or Windows 11 &nbsp;·&nbsp; 64-bit &nbsp;·&nbsp; No admin rights required &nbsp;·&nbsp; Installs per-user</p>
+      </div>
+      <p>Your browser will likely show a warning. Continue to the section for your browser below.</p>
+    </div>
+
+    <!-- ── Step 2: Browser warnings ─────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 2 — Get past the browser warning</div>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="showTab('chrome', this)">Chrome</button>
+        <button class="tab-btn" onclick="showTab('edge', this)">Edge</button>
+        <button class="tab-btn" onclick="showTab('firefox', this)">Firefox / Other</button>
+      </div>
+
+      <!-- Chrome -->
+      <div id="tab-chrome" class="tab-panel active">
+        <div class="card">
+          <p>Chrome shows a warning in the download bar at the bottom of the window. The warning may be hidden inside a collapsed downloads panel — look for a small arrow or download icon in the top-right toolbar.</p>
+
+          <div class="step">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <strong>Find the download in the bar at the bottom of the window</strong>
+              <p>If the bar is not visible, click the download icon (↓) in the Chrome toolbar, top-right.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Chrome downloads bar showing blocked file -->
+          <span class="screenshot-placeholder"><em>Screenshot — Chrome download bar</em>The download shows "PortPane-win-Setup.exe was blocked" with a ⋮ menu on the right.</span>
+
+          <div class="step">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <strong>Click the three-dot <kbd>⋮</kbd> menu on the blocked download</strong>
+              <p>The menu is at the right edge of the download entry.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Chrome ⋮ menu expanded showing Keep option -->
+          <span class="screenshot-placeholder"><em>Screenshot — Chrome ⋮ menu</em>The menu opens showing "Keep" and "Delete" options.</span>
+
+          <div class="step">
+            <span class="step-num">3</span>
+            <div class="step-body">
+              <strong>Click <kbd>Keep</kbd></strong>
+              <p>A second confirmation appears. Click <kbd>Keep anyway</kbd>.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Chrome Keep anyway confirmation -->
+          <span class="screenshot-placeholder"><em>Screenshot — Chrome "Keep anyway" dialog</em>Shows the file name, a warning, and the "Keep anyway" button.</span>
+
+          <div class="step">
+            <span class="step-num">4</span>
+            <div class="step-body">
+              <strong>Click the file in your downloads to run it</strong>
+              <p>Continue to <strong>Step 3</strong> for the Windows SmartScreen prompt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edge -->
+      <div id="tab-edge" class="tab-panel">
+        <div class="card">
+          <p>Edge is more aggressive than Chrome and sometimes shows two separate warnings. The options you need are hidden behind a "Show more" link.</p>
+
+          <div class="step">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <strong>A panel opens on the right side of the window</strong>
+              <p>"PortPane-win-Setup.exe might harm your device" with a prominent <kbd>Delete</kbd> button. Do not click Delete.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Edge right-side download panel with Delete shown prominently -->
+          <span class="screenshot-placeholder"><em>Screenshot — Edge download warning panel</em>The panel shows the file name, a caution icon, and a "Delete" button. The option to keep the file is not visible yet.</span>
+
+          <div class="step">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <strong>Click the three-dot <kbd>···</kbd> button next to the download</strong>
+              <p>This expands a small menu.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Edge ··· menu expanded -->
+          <span class="screenshot-placeholder"><em>Screenshot — Edge ··· menu</em>Shows "Keep" and "Report as safe" options.</span>
+
+          <div class="step">
+            <span class="step-num">3</span>
+            <div class="step-body">
+              <strong>Click <kbd>Keep</kbd></strong>
+              <p>Edge shows a second dialog: "We can't verify this file is safe." The <kbd>Delete</kbd> button is shown again. Look for a small <kbd>Show more</kbd> link.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Edge "We can't verify" dialog with Show more link -->
+          <span class="screenshot-placeholder"><em>Screenshot — Edge second warning dialog</em>Shows "Delete" prominently and a small "Show more" text link below it. "Show more" is easy to miss.</span>
+
+          <div class="step">
+            <span class="step-num">4</span>
+            <div class="step-body">
+              <strong>Click <kbd>Show more</kbd></strong>
+              <p>The dialog expands to show a <kbd>Keep anyway</kbd> option.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Edge expanded with Keep anyway visible -->
+          <span class="screenshot-placeholder"><em>Screenshot — Edge "Keep anyway" revealed</em>After clicking Show more, the "Keep anyway" button appears.</span>
+
+          <div class="step">
+            <span class="step-num">5</span>
+            <div class="step-body">
+              <strong>Click <kbd>Keep anyway</kbd>, then open your Downloads folder and run the file</strong>
+              <p>Continue to <strong>Step 3</strong> for the Windows SmartScreen prompt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Firefox / Other -->
+      <div id="tab-firefox" class="tab-panel">
+        <div class="card">
+          <p>Firefox and most other browsers show a simpler warning. Look for a prompt asking whether to save the file — choose <kbd>Save</kbd> or <kbd>Save File</kbd>. If a warning appears after saving, look for a <kbd>Keep</kbd> or <kbd>Allow</kbd> option.</p>
+          <p style="margin-top: 0.75rem;">Once the file is saved, open your Downloads folder and run it. Continue to <strong>Step 3</strong> for the Windows SmartScreen prompt.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Step 3: Windows SmartScreen ──────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 3 — Windows SmartScreen prompt</div>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="showTab('win10', this)">Windows 10</button>
+        <button class="tab-btn" onclick="showTab('win11', this)">Windows 11</button>
+      </div>
+
+      <!-- Windows 10 -->
+      <div id="tab-win10" class="tab-panel active">
+        <div class="card">
+          <p>When you run the installer, Windows Defender SmartScreen shows a blue dialog. The option to continue is hidden by default — you have to reveal it.</p>
+
+          <div class="step">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <strong>A blue dialog appears: "Windows protected your PC"</strong>
+              <p>The dialog shows the app name and publisher (listed as Unknown). There is no Run button visible yet.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Windows 10 SmartScreen initial dialog -->
+          <span class="screenshot-placeholder"><em>Screenshot — Windows 10 SmartScreen initial dialog</em>Blue dialog: "Windows protected your PC — Microsoft Defender SmartScreen prevented an unrecognized app from starting." A small "More info" link appears in the text.</span>
+
+          <div class="step">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <strong>Click <kbd>More info</kbd></strong>
+              <p>This is a small text link in the body of the dialog, not a button. It is easy to miss.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Windows 10 SmartScreen after More info clicked -->
+          <span class="screenshot-placeholder"><em>Screenshot — Windows 10 SmartScreen after clicking More info</em>The dialog expands to show the app name, publisher, and a new "Run anyway" button at the bottom.</span>
+
+          <div class="step">
+            <span class="step-num">3</span>
+            <div class="step-body">
+              <strong>Click <kbd>Run anyway</kbd></strong>
+              <p>PortPane installs and launches.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Windows 11 -->
+      <div id="tab-win11" class="tab-panel">
+        <div class="card">
+          <p>Windows 11 shows a similar SmartScreen dialog with slightly different styling. The steps are the same.</p>
+
+          <div class="step">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <strong>A dialog appears: "Windows protected your PC"</strong>
+              <p>Same message as Windows 10. Look for the small <kbd>More info</kbd> link.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Windows 11 SmartScreen initial dialog -->
+          <span class="screenshot-placeholder"><em>Screenshot — Windows 11 SmartScreen initial dialog</em>The Windows 11 version has a slightly different layout but the same "More info" link.</span>
+
+          <div class="step">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <strong>Click <kbd>More info</kbd>, then <kbd>Run anyway</kbd></strong>
+              <p>PortPane installs and launches.</p>
+            </div>
+          </div>
+          <!-- Screenshot: Windows 11 SmartScreen Run anyway -->
+          <span class="screenshot-placeholder"><em>Screenshot — Windows 11 SmartScreen after More info</em>Shows "Run anyway" button.</span>
+
+          <div class="card" style="margin-top: 1.25rem; border-left: 3px solid #c0392b;">
+            <p><strong>No "Run anyway" option?</strong> Some clean installs of Windows 11 have <strong>Smart App Control</strong> enabled, which is more restrictive than SmartScreen and does not show a "Run anyway" option at all.</p>
+            <p style="margin-top: 0.75rem;">To work around this: right-click the downloaded <span style="font-family:monospace">PortPane-win-Setup.exe</span>, choose <kbd>Properties</kbd>, tick the <kbd>Unblock</kbd> checkbox near the bottom of the General tab, click <kbd>OK</kbd>, then run the file again.</p>
+            <!-- Screenshot: Properties dialog showing Unblock checkbox -->
+            <span class="screenshot-placeholder"><em>Screenshot — Windows file Properties dialog</em>The General tab shows a security message at the bottom with an "Unblock" checkbox. The checkbox is unchecked by default.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── After install ─────────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">After installation</div>
+      <div class="card">
+        <p>PortPane installs per-user to <span style="font-family:monospace">%LocalAppData%\PortPane\</span>. No administrator rights are required.</p>
+        <p style="margin-top: 0.75rem;">A Start Menu shortcut is created automatically. Future updates are delivered in-app — you will see a notification in PortPane when a newer alpha build is available and can apply it with one click.</p>
+        <p style="margin-top: 0.75rem;">To uninstall: open <strong>Settings → Apps</strong> and find PortPane in the list, or run the uninstaller from <span style="font-family:monospace">%LocalAppData%\PortPane\</span>.</p>
+      </div>
+    </div>
+
+    <!-- ── Trust / verification ──────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Verifying the download</div>
+      <div class="card">
+        <p>Every official PortPane release includes a SHA-256 hash file alongside the installer. You can verify the download using PowerShell:</p>
+        <pre style="background:#f4f4f4;border:1px solid #ddd;border-radius:4px;padding:0.75rem 1rem;font-size:0.85rem;overflow-x:auto;">Get-FileHash PortPane-win-Setup.exe -Algorithm SHA256 | Select-Object Hash</pre>
+        <p style="margin-top: 0.75rem;">Compare the output against the <code>.sha256</code> file published on the <a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/latest-alpha" target="_blank" rel="noopener">GitHub Releases page</a>.</p>
+        <p style="margin-top: 0.75rem;">All official builds are produced by GitHub Actions from the <a href="https://github.com/Computer-Tsu/ShackDesk-PortPane" target="_blank" rel="noopener">public source repository</a>. See the <a href="/portpane/code-signing-policy/">code signing policy</a> for the full picture.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Need help?</div>
+      <div class="card">
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/discussions" target="_blank" rel="noopener">Open a discussion on GitHub</a> — questions, problems, and feedback are all welcome.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(id, btn) {
+      // Find the sibling tab-panel group — all panels in the same .section
+      var section = btn.closest('.section') || btn.parentElement.parentElement;
+      section.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      section.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      var panel = section.querySelector('#tab-' + id);
+      if (panel) panel.classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
