@@ -2,11 +2,11 @@
   "Assets": [
     {
       "PackageId": "PortPane",
-      "Version": "0.5.7-alpha.202604202251",
+      "Version": "0.5.7-alpha.202604202252",
       "Type": "Full",
-      "FileName": "PortPane-0.5.7-alpha.202604202251-full.nupkg",
-      "SHA1": "89B6AEF1D73395A3D99C0F69296DE22EFF0D31D364F7EACBC6920F6FA46B433C",
-      "Size": 93332460
+      "FileName": "PortPane-0.5.7-alpha.202604202252-full.nupkg",
+      "SHA1": "19C4F3E0A25A84AF119F23049E7A75F1EC4B294E341F97B33818F670EC5C02E8",
+      "Size": 93332486
     }
   ]
 }
