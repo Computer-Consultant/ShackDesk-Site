@@ -2,11 +2,20 @@
 # ShackDesk Site — PortPane Update Feed
 #
 # Triggered by repository_dispatch from Computer-Tsu/ShackDesk-PortPane after
-# a release build completes. Updates the per-channel update JSON file so that
-# installed copies of PortPane can discover the new version.
+# a release build completes. Updates two files per channel:
+#
+#   portpane/update/{channel}.json          — flat JSON for the website download
+#                                             button (version, exe URL, sha256)
+#   portpane/update/{channel}/releases.win.json — Velopack VelopackAssetFeed for
+#                                             the in-app updater (nupkg metadata)
+#
+# nupkg files are NOT hosted here — they live on GitHub Releases. Cloudflare
+# serves releases.win.json as a static file; nupkg download requests that don't
+# match any static file fall through to _redirects, which proxies them to GitHub.
 #
 # Dispatch event type : portpane-release
-# Dispatch payload    : channel, version, sha256, download_url
+# Dispatch payload    : channel, version, download_url, sha256,
+#                       nupkg_url, nupkg_sha256, nupkg_size
 # ──────────────────────────────────────────────────────────────────────────────
 name: Update PortPane Feed
 
@@ -26,13 +35,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Write update JSON
+      - name: Write update feeds
         env:
           CHANNEL:      ${{ github.event.client_payload.channel }}
           VERSION:      ${{ github.event.client_payload.version }}
-          SHA256:       ${{ github.event.client_payload.sha256 }}
           DOWNLOAD_URL: ${{ github.event.client_payload.download_url }}
+          SHA256:       ${{ github.event.client_payload.sha256 }}
+          NUPKG_URL:    ${{ github.event.client_payload.nupkg_url }}
+          NUPKG_SHA256: ${{ github.event.client_payload.nupkg_sha256 }}
+          NUPKG_SIZE:   ${{ github.event.client_payload.nupkg_size }}
         run: |
+          # ── Flat JSON for the website download button ──────────────────────
           FILE="portpane/update/${CHANNEL}.json"
           cat > "$FILE" <<EOF
           {
@@ -46,6 +59,29 @@ jobs:
           EOF
           echo "Written: $FILE"
           cat "$FILE"
+
+          # ── Velopack VelopackAssetFeed for the in-app updater ──────────────
+          # Cloudflare serves this file directly (static asset priority over
+          # _redirects). nupkg requests fall through to _redirects → GitHub.
+          mkdir -p "portpane/update/${CHANNEL}"
+          NUPKG_FILENAME=$(basename "${NUPKG_URL}")
+          FEED="portpane/update/${CHANNEL}/releases.win.json"
+          cat > "$FEED" <<EOF
+          {
+            "Assets": [
+              {
+                "PackageId": "PortPane",
+                "Version": "${VERSION}",
+                "Type": "Full",
+                "FileName": "${NUPKG_FILENAME}",
+                "SHA1": "${NUPKG_SHA256}",
+                "Size": ${NUPKG_SIZE}
+              }
+            ]
+          }
+          EOF
+          echo "Written: $FEED"
+          cat "$FEED"
 
       - name: Commit and push
         run: |
