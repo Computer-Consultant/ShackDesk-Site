@@ -33,7 +33,7 @@
 /portpane/update/stable/*   https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-stable/:splat   302
 
 # PortPane — Windows desktop app
-/portpane/download    https://github.com/Computer-Tsu/ShackDesk-PortPane/releases             302
+# /portpane/download is served from portpane/download/index.html (static page takes precedence)
 /portpane/support     https://github.com/Computer-Tsu/ShackDesk-PortPane/discussions          302
 
 # RigCheck — Windows desktop app (in development, no release yet)

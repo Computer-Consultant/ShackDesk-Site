@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Download PortPane by ShackDesk — step-by-step guide to downloading the alpha installer or portable exe, and how to get past Windows and browser warnings for unsigned programs.">
+  <title>Download PortPane — ShackDesk</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot"></span>ShackDesk
+      </a>
+      <ul class="nav-links">
+        <li><a href="/portpane/" class="active">PortPane</a></li>
+        <li><a href="/rigcheck/">RigCheck</a></li>
+        <li><a href="/markmyspot/">MarkMySpot</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/sponsor" class="nav-sponsor">&#9829; Sponsor</a></li>
+        <li><a href="/portpane/download" class="nav-cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <h1>Download PortPane</h1>
+    <p class="lead" style="margin-top: 1rem;">PortPane is currently in <strong>Alpha</strong>. New builds are released automatically on every code push. No stable release yet.</p>
+
+    <!-- ── Step 1: Where to get it ──────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 1 — Go to the release page</div>
+      <div class="card">
+        <p>All PortPane downloads live on GitHub Releases. Open the latest alpha release:</p>
+        <p style="margin-top: 0.75rem;">
+          <a class="btn btn-primary" href="https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/latest-alpha" target="_blank" rel="noopener">
+            Open latest&#8209;alpha release &rarr;
+          </a>
+        </p>
+        <p style="margin-top: 1rem;">Near the bottom of the release page you will see an <strong>Assets</strong> section. If it is collapsed, click the <strong>&#9654; Assets</strong> triangle to expand it and reveal the downloadable files.</p>
+      </div>
+    </div>
+
+    <!-- ── Step 2: Which file to download ───────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 2 — Choose a file</div>
+      <div class="card">
+        <p><span class="label">Option A &mdash; Installer (recommended)</span><br>
+        <strong>PortPane-win-Setup.exe</strong> &mdash; installs PortPane per-user with no admin rights required.
+        Once installed, PortPane checks for updates automatically in the background and can apply them in-app without requiring a manual reinstall.
+        This is the best choice for day-to-day use.</p>
+
+        <hr>
+
+        <p><span class="label">Option B &mdash; Portable executable</span><br>
+        <strong>PortPane.exe</strong> &mdash; a single self-contained executable that runs directly with no installation.
+        Copy it to a USB drive or a folder of your choice.
+        Settings are stored alongside the exe when a <code>portable.txt</code> file is present.
+        Does not support in-app auto-update; you must download a new build manually.
+        Ideal for EMCOMM go-kits or shared machines.</p>
+
+        <hr>
+
+        <p style="color: var(--text-muted); font-size: 0.875rem;">
+          Each release also includes a <strong>SHA-256 hash</strong> in the release notes.
+          You can verify the downloaded file matches the hash using PowerShell:<br>
+          <code>Get-FileHash PortPane-win-Setup.exe -Algorithm SHA256</code>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Step 3: Browser warnings ─────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 3 — Get past browser download warnings</div>
+      <div class="card">
+        <p>Because PortPane is currently unsigned, your browser may flag the download. Follow the steps for your browser below.</p>
+
+        <p style="margin-top: 1rem;"><span class="label">Google Chrome</span></p>
+        <ol>
+          <li>After the download completes, a warning bar may appear at the bottom of the window.</li>
+          <li>Click the <strong>&and;</strong> (chevron) next to the file name, then click <strong>Keep</strong>.</li>
+          <li>A second prompt may appear &mdash; click <strong>Keep anyway</strong>.</li>
+          <li>The file is now in your Downloads folder, ready to run.</li>
+        </ol>
+
+        <p style="margin-top: 1rem;"><span class="label">Microsoft Edge</span></p>
+        <ol>
+          <li>After downloading, Edge shows a warning in the download bar or panel.</li>
+          <li>Click the <strong>&hellip;</strong> (three dots) next to the file, then click <strong>Keep</strong>.</li>
+          <li>Edge opens a detail page &mdash; click <strong>Show more</strong>, then <strong>Keep anyway</strong>.</li>
+          <li>The file is now in your Downloads folder, ready to run.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ── Step 4: Windows SmartScreen ──────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 4 — Get past Windows SmartScreen</div>
+      <div class="card">
+        <p>When you run the downloaded file for the first time, Windows SmartScreen may display a blue &ldquo;Windows protected your PC&rdquo; dialog.</p>
+
+        <p style="margin-top: 1rem;"><span class="label">Windows 10 and Windows 11</span></p>
+        <ol>
+          <li>In the SmartScreen dialog, click <strong>More info</strong> (below the app name).</li>
+          <li>A <strong>Run anyway</strong> button appears at the bottom &mdash; click it.</li>
+          <li>The installer or portable exe will launch normally.</li>
+        </ol>
+
+        <p style="margin-top: 1.25rem; padding: 0.75rem 1rem; background: var(--bg-card); border-left: 3px solid var(--accent); border-radius: 4px;">
+          <strong>Why does this appear?</strong><br>
+          Windows SmartScreen requires a code-signing certificate and a &ldquo;reputation&rdquo; period before it stops warning users about a new executable.
+          PortPane is in the process of obtaining a certificate through SignPath (an OSS code-signing service).
+          Until signing is complete, this warning is expected and normal.
+          You can verify the file is authentic by checking the SHA-256 hash published on the release page.
+          <a href="/portpane/code-signing-policy/">Read the PortPane code signing policy &rarr;</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Quick links ───────────────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Quick links</div>
+      <div class="card">
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/latest-alpha" target="_blank" rel="noopener">Latest alpha release page (GitHub)</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-alpha/PortPane-win-Setup.exe">Direct installer download &mdash; PortPane-win-Setup.exe</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-alpha/PortPane.exe">Direct portable download &mdash; PortPane.exe</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-PortPane/discussions" target="_blank" rel="noopener">Discussions &amp; support</a></p>
+        <p><a href="/portpane/code-signing-policy/">Code signing policy</a></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
