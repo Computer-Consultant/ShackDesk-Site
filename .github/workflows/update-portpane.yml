@@ -2,16 +2,20 @@
 # ShackDesk Site — PortPane Update Feed
 #
 # Triggered by repository_dispatch from Computer-Tsu/ShackDesk-PortPane after
-# a release build completes. Updates the per-channel Velopack feed file so that
-# installed copies of PortPane can discover and download the new version.
+# a release build completes. Updates two files per channel:
+#
+#   portpane/update/{channel}.json          — flat JSON for the website download
+#                                             button (version, exe URL, sha256)
+#   portpane/update/{channel}/releases.win.json — Velopack VelopackAssetFeed for
+#                                             the in-app updater (nupkg metadata)
+#
+# nupkg files are NOT hosted here — they live on GitHub Releases. Cloudflare
+# serves releases.win.json as a static file; nupkg download requests that don't
+# match any static file fall through to _redirects, which proxies them to GitHub.
 #
 # Dispatch event type : portpane-release
-# Dispatch payload    : channel, version, nupkg_url, nupkg_sha256
-#
-# Feed format: VelopackAssetFeed (Assets array) required by Velopack's
-# SimpleWebSource. File is served at portpane/update/{channel}/releases.win.json
-# which Velopack constructs automatically by appending "releases.win.json" to
-# the base endpoint URL configured in BrandingInfo.cs.
+# Dispatch payload    : channel, version, download_url, sha256,
+#                       nupkg_url, nupkg_sha256, nupkg_size
 # ──────────────────────────────────────────────────────────────────────────────
 name: Update PortPane Feed
 
@@ -31,32 +35,53 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Write Velopack feed JSON
+      - name: Write update feeds
         env:
           CHANNEL:      ${{ github.event.client_payload.channel }}
           VERSION:      ${{ github.event.client_payload.version }}
+          DOWNLOAD_URL: ${{ github.event.client_payload.download_url }}
+          SHA256:       ${{ github.event.client_payload.sha256 }}
           NUPKG_URL:    ${{ github.event.client_payload.nupkg_url }}
           NUPKG_SHA256: ${{ github.event.client_payload.nupkg_sha256 }}
+          NUPKG_SIZE:   ${{ github.event.client_payload.nupkg_size }}
         run: |
-          DIR="portpane/update/${CHANNEL}"
-          FILE="${DIR}/releases.win.json"
-          mkdir -p "$DIR"
+          # ── Flat JSON for the website download button ──────────────────────
+          FILE="portpane/update/${CHANNEL}.json"
           cat > "$FILE" <<EOF
+          {
+            "version": "${VERSION}",
+            "url": "${DOWNLOAD_URL}",
+            "sha256": "${SHA256}",
+            "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v${VERSION}",
+            "channel": "${CHANNEL}",
+            "updated": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+          echo "Written: $FILE"
+          cat "$FILE"
+
+          # ── Velopack VelopackAssetFeed for the in-app updater ──────────────
+          # Cloudflare serves this file directly (static asset priority over
+          # _redirects). nupkg requests fall through to _redirects → GitHub.
+          mkdir -p "portpane/update/${CHANNEL}"
+          NUPKG_FILENAME=$(basename "${NUPKG_URL}")
+          FEED="portpane/update/${CHANNEL}/releases.win.json"
+          cat > "$FEED" <<EOF
           {
             "Assets": [
               {
                 "PackageId": "PortPane",
                 "Version": "${VERSION}",
                 "Type": "Full",
-                "FileName": "${NUPKG_URL}",
-                "SHA256": "${NUPKG_SHA256}",
-                "NotesMarkdown": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v${VERSION}"
+                "FileName": "${NUPKG_FILENAME}",
+                "SHA1": "${NUPKG_SHA256}",
+                "Size": ${NUPKG_SIZE}
               }
             ]
           }
           EOF
-          echo "Written: $FILE"
-          cat "$FILE"
+          echo "Written: $FEED"
+          cat "$FEED"
 
       - name: Commit and push
         run: |
