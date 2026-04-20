@@ -1,8 +1,8 @@
 {
-  "version": "0.5.7-alpha.202604202152",
-  "url": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-alpha/PortPane-0.5.7-alpha.202604202152-win-x64.exe",
-  "sha256": "01822fdf9b19cf1a9fdd920164aa9946fd99ee19a9655928e9c4b6237a26d9bd",
-  "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v0.5.7-alpha.202604202152",
+  "version": "0.5.7-alpha.202604202251",
+  "url": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/download/latest-alpha/PortPane-0.5.7-alpha.202604202251-win-x64.exe",
+  "sha256": "cceba26c8a4e1b5875852178e960fe67dfb4ee644282c8bb8d2ab53fd3eac5a7",
+  "releaseNotes": "https://github.com/Computer-Tsu/ShackDesk-PortPane/releases/tag/v0.5.7-alpha.202604202251",
   "channel": "alpha",
-  "updated": "2026-04-20T21:56:18Z"
+  "updated": "2026-04-20T22:55:15Z"
 }
