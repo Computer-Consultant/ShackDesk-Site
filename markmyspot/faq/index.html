@@ -73,14 +73,58 @@
             <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>A few things to check:</p>
-            <ul style="margin: 0.5rem 0 0.5rem 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.9;">
-              <li>Make sure you granted location permission when prompted. If you denied it, you'll need to reset it in your browser or device settings.</li>
-              <li>On iOS, go to Settings → Privacy → Location Services → your browser → set to "While Using".</li>
-              <li>On Android, go to Settings → Apps → your browser → Permissions → Location → Allow.</li>
-              <li>If you're indoors with no GPS signal, try moving closer to a window or stepping outside.</li>
-              <li>Use the Refresh button to re-request your location without reloading the page.</li>
-            </ul>
+            <p>When MarkMySpot first loads, your browser will ask for location permission — tap <strong>Allow</strong>. If you missed that prompt or tapped Block, follow the steps for your device below.</p>
+
+            <p style="margin-top: 1rem;"><span class="label">iPhone — Safari</span></p>
+            <ol>
+              <li>Open the iPhone <strong>Settings</strong> app.</li>
+              <li>Tap <strong>Privacy &amp; Security</strong> → <strong>Location Services</strong>.</li>
+              <li>Make sure <strong>Location Services</strong> is toggled <strong>on</strong> at the top of the screen. Safari cannot offer location access at all if this is off.</li>
+              <li>Scroll down and tap <strong>Safari Websites</strong> (listed as <strong>Safari</strong> on older iOS).</li>
+              <li>Set location access to <strong>While Using the App</strong> or <strong>Ask Next Time Or When I Share</strong>.</li>
+              <li>Return to MarkMySpot in Safari and tap Refresh. Safari will now be able to ask for permission.</li>
+            </ol>
+
+            <p style="margin-top: 1rem;"><span class="label">iPhone — Chrome or another browser</span></p>
+            <ol>
+              <li>Open the iPhone <strong>Settings</strong> app.</li>
+              <li>Scroll down and tap <strong>Privacy &amp; Security</strong>.</li>
+              <li>Tap <strong>Location Services</strong>.</li>
+              <li>Find and tap your browser name (Chrome, Firefox, etc.).</li>
+              <li>Set location access to <strong>While Using the App</strong>.</li>
+              <li>Return to MarkMySpot and tap Refresh.</li>
+            </ol>
+
+            <p style="margin-top: 1rem;"><span class="label">Android — Chrome (browser-level reset)</span></p>
+            <ol>
+              <li>With MarkMySpot open in Chrome, tap the <strong>lock icon</strong> (or info icon) in the address bar.</li>
+              <li>Tap <strong>Permissions</strong> (or <strong>Site settings</strong>).</li>
+              <li>Tap <strong>Location</strong> and change it to <strong>Allow</strong>.</li>
+              <li>Reload the page.</li>
+            </ol>
+
+            <p style="margin-top: 1rem;"><span class="label">Android — Chrome (system-level reset)</span></p>
+            <ol>
+              <li>Open your phone's <strong>Settings</strong> app.</li>
+              <li>Tap <strong>Apps</strong> (or <strong>Application Manager</strong>).</li>
+              <li>Tap <strong>Chrome</strong>.</li>
+              <li>Tap <strong>Permissions</strong> → <strong>Location</strong>.</li>
+              <li>Select <strong>Allow only while using the app</strong>.</li>
+              <li>Return to MarkMySpot in Chrome and reload.</li>
+            </ol>
+
+            <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">If you're indoors with no GPS signal, try stepping outside or moving closer to a window. Use the <strong>Refresh</strong> button in the app to re-request your location without reloading the page.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="reset-permission">
+          <button class="faq-question" aria-expanded="false" type="button">
+            I accidentally tapped "Block" when the app asked for location. How do I fix it?
+            <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Once you tap Block, the browser will not ask again automatically — you need to re-enable location permission manually. Follow the steps in the question above for your device and browser.</p>
+            <p style="margin-top: 0.75rem;">On Android Chrome, the quickest way is the lock icon in the address bar → Permissions → Location → Allow. On iPhone, go to Settings → Privacy &amp; Security → Location Services → your browser → While Using the App.</p>
           </div>
         </div>
 
@@ -146,9 +190,39 @@
             <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p><strong>Android (Chrome):</strong> Open the app in Chrome. Tap the three-dot menu → "Add to Home screen". The app installs and launches like a native app.</p>
-            <p><strong>iOS (Safari):</strong> Open the app in Safari. Tap the Share button (box with arrow) → "Add to Home Screen". The app appears on your home screen and launches without the browser UI.</p>
-            <p>No app store required. No download. The installed app works offline after installation.</p>
+            <p><strong>iPhone — you must use Safari.</strong> Chrome, Firefox, and other browsers on iOS cannot install apps to the home screen. If Safari is not your default browser, copy the MarkMySpot URL and open it in Safari specifically.</p>
+
+            <p style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; background: var(--bg-card); border-left: 3px solid var(--accent); border-radius: 4px; font-size: 0.9rem;">
+              <strong>Before you install:</strong> Safari needs iOS permission to use your location. Go to <strong>Settings → Privacy &amp; Security → Location Services → Safari</strong> and set it to <strong>While Using the App</strong>. If Location Services is turned off entirely, enable it at the top of that screen first. Without this, MarkMySpot will not be able to read your GPS — even after installation.
+            </p>
+
+            <p style="margin-top: 1rem;"><span class="label">iPhone (Safari)</span></p>
+            <ol>
+              <li>Open MarkMySpot in <strong>Safari</strong>.</li>
+              <li>Tap the <strong>Share</strong> button — the rectangle with an arrow pointing upward, at the bottom of the screen.</li>
+              <li>Scroll down in the Share sheet and tap <strong>Add to Home Screen</strong>.</li>
+              <li>Edit the name if you wish, then tap <strong>Add</strong> in the top-right corner.</li>
+              <li>The MarkMySpot icon appears on your home screen. Tap it to open the app without any browser chrome.</li>
+              <li>The first time you open it from the home screen, iOS may ask for location permission again — tap <strong>Allow While Using App</strong>.</li>
+            </ol>
+
+            <p style="margin-top: 1rem;"><span class="label">Android (Chrome)</span></p>
+            <ol>
+              <li>Open MarkMySpot in <strong>Chrome</strong>.</li>
+              <li>Chrome may show an <strong>Install app</strong> or <strong>Add to Home screen</strong> banner at the bottom — tap it if it appears.</li>
+              <li>If no banner appears, tap the <strong>three-dot menu</strong> (⋮) in the top-right corner.</li>
+              <li>Tap <strong>Add to Home screen</strong> or <strong>Install app</strong>.</li>
+              <li>Confirm the prompt. MarkMySpot appears on your home screen and launches like a native app.</li>
+            </ol>
+
+            <p style="margin-top: 1rem;"><span class="label">Android (Samsung Internet)</span></p>
+            <ol>
+              <li>Open MarkMySpot in Samsung Internet.</li>
+              <li>Tap the <strong>three-line menu</strong> at the bottom.</li>
+              <li>Tap <strong>Add page to</strong> → <strong>Home screen</strong>.</li>
+            </ol>
+
+            <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">No app store. No download. The installed app works fully offline after the first load.</p>
           </div>
         </div>
 
