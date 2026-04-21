@@ -51,8 +51,13 @@
             <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>The Maidenhead Locator System divides the world into a grid of named squares used by amateur radio operators to describe location concisely. A 6-character grid square like <span class="mono">EL89tr</span> identifies an area roughly 5km × 2.5km. Grid squares are used in contest exchanges (especially VHF/UHF), POTA and SOTA activations, satellite pass predictions, APRS, and EMCOMM spot reports.</p>
-            <p>MarkMySpot calculates your 6-character grid square directly from your GPS coordinates — no internet lookup required.</p>
+            <p>The Maidenhead Locator System divides the world into a grid of named squares used by amateur radio operators to describe location concisely. Grid squares are used in contest exchanges (especially VHF/UHF), POTA and SOTA activations, satellite pass predictions, APRS, and EMCOMM spot reports.</p>
+            <p>Precision depends on the number of characters:</p>
+            <ul style="margin: 0.5rem 0 0.5rem 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.9;">
+              <li><strong>6 characters</strong> (e.g. <span class="mono">EL89tr</span>) — identifies an area roughly 5 km × 2.5 km. Standard for most contest exchanges, POTA, and EMCOMM use.</li>
+              <li><strong>8 characters</strong> (e.g. <span class="mono">EL89tr12</span>) — narrows that to roughly 500 m × 250 m. Useful for precise portable or rover operation.</li>
+            </ul>
+            <p>MarkMySpot calculates your grid square directly from GPS coordinates — no internet required. It displays 6 characters by default and extends to 8 automatically when your device's GPS accuracy is good enough to support the higher precision.</p>
           </div>
         </div>
 
@@ -62,8 +67,14 @@
             <svg class="faq-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Accuracy depends on your device and environment. MarkMySpot displays the accuracy estimate reported by your device alongside the coordinates. On a phone with GPS outdoors, accuracy is typically 3–10 metres — more than sufficient for a 6-character grid square. Indoors or on a desktop browser using IP-based location, accuracy may be hundreds of metres or more.</p>
-            <p>The app shows a plain-language accuracy indicator so you always know how precise the reading is.</p>
+            <p>Accuracy depends on your device and environment. On a phone with GPS outdoors, accuracy is typically 3–10 metres — more than sufficient for an 8-character grid square. Indoors or on a desktop browser using IP-based location, accuracy may be hundreds of metres or more.</p>
+            <p>MarkMySpot adapts what it displays to match your device's reported accuracy:</p>
+            <ul style="margin: 0.5rem 0 0.5rem 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.9;">
+              <li><strong>Grid square</strong> — shown as 6 characters normally; extends to 8 when GPS accuracy supports it.</li>
+              <li><strong>Decimal degrees</strong> — number of decimal places scaled to accuracy. No false precision shown when your margin of error is large.</li>
+              <li><strong>DMS</strong> — seconds rounded to appropriate precision for the same reason.</li>
+            </ul>
+            <p>A plain-language accuracy indicator is always visible so you know how precise the current reading is.</p>
           </div>
         </div>
 
