@@ -216,7 +216,7 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>No. The standard tests only <em>read</em> from the radio &mdash; frequency, mode, VFO, S-meter, and whether PTT is currently keyed. RigCheck never keys the transmitter. One optional test briefly changes the VFO frequency by 1 kHz to confirm the radio accepts commands, then restores the original frequency; it is off by default and asks for confirmation before running.</p>
+            <p>No. The standard tests only <em>read</em> from the radio &mdash; frequency, mode, VFO, S-meter, and whether PTT is currently keyed. RigCheck never keys the transmitter. One optional test briefly changes the VFO frequency by 1 kHz to confirm the radio accepts commands, then restores the original frequency; it is off by default and asks for confirmation before running. <strong>Find my radio</strong> is read-only too: it sends only identify and read-frequency requests, and never raises the RTS or DTR lines that many interfaces use for PTT.</p>
           </div>
         </div>
 
@@ -247,6 +247,48 @@
           </button>
           <div class="faq-answer">
             <p>RigCheck itself never opens a network port, so Windows Firewall will not ask about RigCheck. If RigCheck suggested starting <strong>rigctld</strong> (Hamlib's rig-control server) and Windows then asks about <em>rigctld.exe</em>, that is expected: rigctld listens for connections. Tick <strong>Private networks</strong> and click <strong>Allow access</strong>. You do not need to allow it on public networks. If you clicked Cancel in the past, Windows created a Block rule and rigctld will silently fail until that rule is removed in Windows Firewall settings.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-scan">
+          <button class="faq-question" type="button" aria-expanded="false">
+            What does Scan PC look at, and does it change anything?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Scan PC</strong> checks the computer side before any radio is involved: the Windows version, every copy of Hamlib it can find and which one it uses, whether <code>rigctl</code> runs and is on the PATH, which radio model is selected (with a warning if it is Hamlib's dummy rig), serial port drivers and any Plug and Play problem codes, whether rigctld or Flrig is already listening, rigctld startup entries, Windows Firewall rules for rigctld, and which radio programs are installed.</p>
+            <p>It changes nothing. Where a fix is needed &mdash; adding Hamlib's folder to the PATH, allowing rigctld through the firewall &mdash; RigCheck shows you the command or the setting and leaves the change to you. The scan only runs when you click the button; RigCheck never looks at running programs or open ports on its own at startup.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-find">
+          <button class="faq-question" type="button" aria-expanded="false">
+            What does Find my radio send to my radio?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Only read requests: <em>identify yourself</em> (<code>ID;</code> for Kenwood, Elecraft, and Yaesu; a CI-V read-ID for Icom) and <em>what frequency are you on</em>. It tries each protocol family at the speeds that family normally uses, stops at the first radio that answers on a port, then runs the ordinary Hamlib tests to confirm, and fills in the Connection panel for you.</p>
+            <p>Two rules have no setting: the RTS and DTR lines are never raised (on many interfaces they are the PTT line), and the only requests it can send are the handful built into the program &mdash; the radio data files can choose which one, but cannot add their own. Every byte sent and received is shown in the results and goes into the exported log, so a technical helper can repeat the exchange with a terminal program.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-find-unticked">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Why is one of my COM ports unticked in Find my radio?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Its name matched something that is not a radio: a rotator controller, an amplifier, an antenna controller, a GPS receiver, or a Bluetooth link. Sending even a harmless query to a rotator or amplifier is not something RigCheck will do without being told, so those ports start unticked and the reason is shown beside them. If you are sure the port is your radio's CAT connection, tick it and Find my radio will include it.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-path">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Scan PC says rigctl is not on the PATH. Does that matter?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Not for RigCheck itself &mdash; it finds <code>rigctl.exe</code> inside your WSJT-X, Fldigi, or Hamlib folder without any help. It matters when you copy one of the commands RigCheck shows and paste it into a command window: those start with just <code>rigctl</code>, and Windows needs to know where that is. Scan PC shows the exact <code>setx</code> line to add the folder; run it in a command prompt opened as Administrator, then open a new window. RigCheck never edits the PATH for you.</p>
           </div>
         </div>
 
