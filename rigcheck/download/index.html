@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Download RigCheck by ShackDesk — how to get the current alpha build, verify it, and get past Windows and browser warnings for unsigned programs.">
+  <title>Download RigCheck — ShackDesk</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-dot"></span>ShackDesk
+      </a>
+      <ul class="nav-links">
+        <li><a href="/portpane/">PortPane</a></li>
+        <li><a href="/rigcheck/" class="active">RigCheck</a></li>
+        <li><a href="/markmyspot/">MarkMySpot</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/sponsor" class="nav-sponsor">&#9829; Sponsor</a></li>
+        <li><a href="/rigcheck/download/" class="nav-cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <h1>Download RigCheck</h1>
+    <p class="lead" style="margin-top: 1rem;">RigCheck is currently in <strong>Alpha</strong>. New builds are published from every change to the code. No stable release yet.</p>
+
+    <!-- ── Alpha expiry ─────────────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Alpha builds expire</div>
+      <div class="card">
+        <p><strong>Every alpha build stops running 30 days after it was built.</strong> This keeps testers on current code and steers everyday operators toward stable releases once they exist.</p>
+        <p style="margin-top: 0.75rem;">The expiry date is shown in the RigCheck window title and in <strong>Help &rsaquo; About</strong>. In the final days the status bar warns you. When an alpha has expired, starting it shows a notice with a link back to this page &mdash; just download the current build.</p>
+      </div>
+    </div>
+
+    <!-- ── Step 1: Where to get it ──────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 1 — Go to the releases page</div>
+      <div class="card">
+        <p>All RigCheck downloads live on GitHub Releases. The newest alpha is at the top:</p>
+        <p style="margin-top: 0.75rem;">
+          <a class="btn btn-primary" href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/releases" target="_blank" rel="noopener">
+            Open RigCheck releases &rarr;
+          </a>
+        </p>
+        <p style="margin-top: 1rem;">Near the bottom of each release you will see an <strong>Assets</strong> section. If it is collapsed, click the <strong>&#9654; Assets</strong> triangle to expand it and reveal the downloadable files.</p>
+      </div>
+    </div>
+
+    <!-- ── Step 2: Which file to download ───────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 2 — Download and verify</div>
+      <div class="card">
+        <p>RigCheck is a single portable program &mdash; one <strong>.exe</strong> file, no installer. Download the file named like <strong>RigCheck-0.6.2-alpha-20260921-8e91708.exe</strong> (the numbers are the version, build date, and a code identifier). Put it anywhere you like and run it.</p>
+
+        <p style="margin-top: 1rem;">Each release also includes a <strong>.sha256</strong> file and shows the same hash in the release notes. To confirm your download is authentic, open PowerShell in your Downloads folder and run:</p>
+        <pre style="margin-top: 0.5rem;"><code>Get-FileHash RigCheck-*.exe -Algorithm SHA256</code></pre>
+        <p style="margin-top: 0.5rem;">The hash it prints should match the one on the release page.</p>
+      </div>
+    </div>
+
+    <!-- ── Step 3: Browser warnings ─────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 3 — Get past browser download warnings</div>
+      <div class="card">
+        <p>Because RigCheck is currently unsigned, your browser may flag the download. Follow the steps for your browser below.</p>
+
+        <p style="margin-top: 1rem;"><span class="label">Google Chrome</span></p>
+        <ol>
+          <li>After the download completes, a warning bar may appear at the bottom of the window.</li>
+          <li>Click the <strong>&and;</strong> (chevron) next to the file name, then click <strong>Keep</strong>.</li>
+          <li>A second prompt may appear &mdash; click <strong>Keep anyway</strong>.</li>
+          <li>The file is now in your Downloads folder, ready to run.</li>
+        </ol>
+
+        <p style="margin-top: 1rem;"><span class="label">Microsoft Edge</span></p>
+        <ol>
+          <li>After downloading, Edge shows a warning in the download bar or panel.</li>
+          <li>Click the <strong>&hellip;</strong> (three dots) next to the file, then click <strong>Keep</strong>.</li>
+          <li>Edge opens a detail page &mdash; click <strong>Show more</strong>, then <strong>Keep anyway</strong>.</li>
+          <li>The file is now in your Downloads folder, ready to run.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ── Step 4: Windows SmartScreen ──────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Step 4 — Get past Windows SmartScreen</div>
+      <div class="card">
+        <p>When you run the downloaded file for the first time, Windows SmartScreen may display a blue &ldquo;Windows protected your PC&rdquo; dialog.</p>
+
+        <p style="margin-top: 1rem;"><span class="label">Windows 10 and Windows 11</span></p>
+        <ol>
+          <li>In the SmartScreen dialog, click <strong>More info</strong> (below the app name).</li>
+          <li>A <strong>Run anyway</strong> button appears at the bottom &mdash; click it.</li>
+          <li>RigCheck will start normally. The first start takes a few seconds longer while it unpacks.</li>
+        </ol>
+
+        <p style="margin-top: 1.25rem; padding: 0.75rem 1rem; background: var(--bg-card); border-left: 3px solid var(--accent); border-radius: 4px;">
+          <strong>Why does this appear?</strong><br>
+          Windows SmartScreen requires a code-signing certificate and a &ldquo;reputation&rdquo; period before it stops warning users about a new executable.
+          RigCheck will be signed once it qualifies for an open-source code-signing program.
+          Until then, this warning is expected and normal. Verify the file with the SHA-256 hash from Step 2 instead.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── Requirements ─────────────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">What you need</div>
+      <div class="card">
+        <p><span class="label">Windows</span><br>
+        Windows 10 (version 21H2 or later) or Windows 11, 64-bit. Nothing else to install &mdash; the .NET runtime is built into the exe. Windows 11 on ARM runs it through its built-in x64 emulation. Windows 7 and 8.1 are not supported.</p>
+
+        <hr>
+
+        <p><span class="label">Hamlib</span><br>
+        RigCheck uses Hamlib's <strong>rigctl</strong> to talk to your radio and finds it automatically if it is already on your computer. Most operators have it from <a href="https://wsjt.sourceforge.io/wsjtx.html" target="_blank" rel="noopener">WSJT-X</a> or <a href="http://www.w1hkj.com/" target="_blank" rel="noopener">Fldigi</a>. Otherwise get the <a href="https://github.com/Hamlib/Hamlib/releases" target="_blank" rel="noopener">standalone Hamlib for Windows</a>. If RigCheck cannot find it, the top of the window says so and offers a link.</p>
+
+        <hr>
+
+        <p><span class="label">Your radio's USB driver</span><br>
+        The cable between your PC and radio needs its driver, the same one your digital-mode software uses. Most Icom radios use the Silicon Labs CP210x driver; many other cables use FTDI or Prolific. If the COM port does not appear in RigCheck, this is usually why.</p>
+      </div>
+    </div>
+
+    <!-- ── Quick links ───────────────────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Quick links</div>
+      <div class="card">
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/releases" target="_blank" rel="noopener">Releases page (GitHub)</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/discussions" target="_blank" rel="noopener">Discussions &amp; support</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/issues" target="_blank" rel="noopener">Report a problem</a></p>
+        <p><a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/blob/develop/CHANGELOG.md" target="_blank" rel="noopener">What changed in each build</a></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="https://github.com/Computer-Tsu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

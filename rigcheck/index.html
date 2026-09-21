@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RigCheck by ShackDesk — serial CAT communication diagnostics for amateur radio operators. Currently in development.">
+  <meta name="description" content="RigCheck by ShackDesk — serial CAT communication diagnostics for amateur radio operators. Alpha builds available now.">
   <title>RigCheck — ShackDesk</title>
   <link rel="stylesheet" href="/style.css">
 </head>
@@ -21,18 +21,19 @@
         <li><a href="/about/">About</a></li>
         <li><a href="/faq/">FAQ</a></li>
         <li><a href="/sponsor" class="nav-sponsor">&#9829; Sponsor</a></li>
-        <li><a href="/portpane/download" class="nav-cta">Download</a></li>
+        <li><a href="/rigcheck/download/" class="nav-cta">Download</a></li>
       </ul>
     </div>
   </nav>
 
-  <section class="product-hero" style="opacity: 0.75;">
+  <section class="product-hero">
     <div class="product-hero-inner">
       <div class="product-tagline">ShackDesk — "Know your rig is ready."</div>
-      <h1>RigCheck <span class="badge badge-dev" style="font-size: 0.7rem; vertical-align: middle;">In development</span></h1>
+      <h1>RigCheck <span class="badge badge-dev" style="font-size: 0.7rem; vertical-align: middle;">Alpha</span></h1>
       <p class="lead">Serial CAT communication diagnostics using Hamlib. Verify your radio connection before it matters.</p>
       <div class="product-actions">
-        <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck" target="_blank" rel="noopener" class="btn btn-outline">Watch on GitHub</a>
+        <a href="/rigcheck/download/" class="btn btn-primary">Download alpha</a>
+        <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub</a>
       </div>
     </div>
   </section>
@@ -41,12 +42,13 @@
 
     <div class="card" style="text-align: center; padding: 3rem;">
       <p class="label">Status</p>
-      <p style="font-size: 1.1rem; margin-top: 0.5rem;">RigCheck is currently in development. No release is available yet.</p>
-      <p style="margin-top: 1rem;">Watch the <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck" target="_blank" rel="noopener">GitHub repository</a> for announcements, or follow the project on the <a href="/">ShackDesk home page</a>.</p>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">RigCheck is in <strong>alpha</strong>. Builds are available for testing; there is no stable release yet.</p>
+      <p style="margin-top: 1rem;"><strong>Alpha builds expire 30 days after they are built</strong> and stop running, so testers always use current code. The expiry date is shown in the window title and in Help &rsaquo; About. See the <a href="/rigcheck/download/">download page</a> for details.</p>
+      <p style="margin-top: 1rem;">Found a problem? Open an <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/issues" target="_blank" rel="noopener">issue</a> or ask in <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/discussions" target="_blank" rel="noopener">Discussions</a>.</p>
     </div>
 
     <div class="section">
-      <div class="section-label">Planned Features</div>
+      <div class="section-label">Features</div>
       <div class="features">
         <div class="feature">
           <div class="feature-title">CAT Diagnostics</div>
@@ -68,9 +70,11 @@
     </div>
 
     <div class="section">
-      <div class="section-label">In the meantime</div>
+      <div class="section-label">Coming next</div>
       <div class="card">
-        <p>Looking for a tool that's available now? <a href="/portpane/">PortPane</a> handles audio device and COM port management for digital mode operators and is available for download today.</p>
+        <p><strong>Environment checks</strong> &mdash; find every copy of Hamlib on the PC, check it is on the PATH, spot a running rigctld or Flrig, and check Windows Firewall rules, before any radio test runs.</p>
+        <p style="margin-top: 0.75rem;"><strong>Find my radio</strong> &mdash; scan the available ports and speak each radio protocol family until the rig answers, then hand you the exact settings for WSJT-X, Fldigi, or JS8Call.</p>
+        <p style="margin-top: 0.75rem;">Also from ShackDesk: <a href="/portpane/">PortPane</a> handles audio device and COM port switching for digital mode operators.</p>
       </div>
     </div>
 
