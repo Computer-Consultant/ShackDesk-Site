@@ -64,7 +64,7 @@
           </button>
           <div class="faq-answer">
             <p>No. ShackDesk apps do not collect your callsign, name, email address, IP address, hostname, or any personally identifiable information. Ever.</p>
-            <p>Optional telemetry (opt-in only) collects anonymous device identifiers — audio device and COM port names — to help improve hardware compatibility. See the <a href="/privacy/">Privacy page</a> for full details.</p>
+            <p>Optional diagnostics (opt-in only) collect anonymous hardware identifiers to improve compatibility: for PortPane, audio device and COM port names; for RigCheck, the radio model, serial settings, USB cable identifiers, and test results. Each app lets you view every report it has sent. See the <a href="/privacy/">Privacy page</a> for full details.</p>
           </div>
         </div>
 
@@ -155,8 +155,8 @@
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-label">RigCheck <span class="badge badge-dev">In development</span></div>
+    <div class="section" id="rigcheck">
+      <div class="section-label">RigCheck <span class="badge badge-dev">Alpha</span></div>
       <div class="faq-group">
 
         <div class="faq-item" id="what-is-rigcheck">
@@ -165,7 +165,7 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>RigCheck is a CAT communication diagnostic tool. It uses Hamlib to test serial communication with your radio and helps diagnose connection problems before or during an operating session. RigCheck is currently in development — no release is available yet.</p>
+            <p>RigCheck is a CAT communication diagnostic tool. It uses Hamlib &mdash; the same rig-control library behind WSJT-X, Fldigi, JS8Call, and Winlink &mdash; to test the serial connection to your radio and explain in plain English what is working and what is not. It is for the moment when digital-mode software says it cannot talk to your rig and you do not know why.</p>
           </div>
         </div>
 
@@ -175,7 +175,90 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>No release date has been announced yet. Watch the <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck" target="_blank" rel="noopener">GitHub repository</a> for announcements.</p>
+            <p>Alpha builds are available now from the <a href="/rigcheck/download/">RigCheck download page</a>. They are for testing and feedback; there is no stable release yet. The connection tests and diagnosis are in place, and automatic radio discovery and environment checks are still being built. New alpha builds are published as the code changes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-expiry">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Why does my RigCheck alpha say it expires?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Every alpha build stops running 30 days after it was built. This keeps testers on current code, so bug reports are about the latest version, and it steers everyday operators toward stable releases once they exist. The expiry date is in the window title and in <strong>Help &rsaquo; About</strong>. Once an alpha has expired, starting it shows a notice with a link to the download page &mdash; just get the current build. Beta builds will warn but keep running; stable releases never expire.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-hamlib">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Do I need to install Hamlib separately?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Usually not. RigCheck finds the <strong>rigctl</strong> program that comes with WSJT-X or Fldigi, or a standalone Hamlib install, automatically. If you have none of those, install <a href="https://wsjt.sourceforge.io/wsjtx.html" target="_blank" rel="noopener">WSJT-X</a> (which most digital-mode operators want anyway) or the <a href="https://github.com/Hamlib/Hamlib/releases" target="_blank" rel="noopener">standalone Hamlib for Windows</a>, then restart RigCheck.</p>
+            <p>If RigCheck says Hamlib was not found but you know it is installed, it may be in a location RigCheck does not check yet. Open an issue with the path and it will be added.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-radios">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Which radios does RigCheck support?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Any radio Hamlib supports &mdash; several hundred models from Icom, Yaesu, Kenwood, Elecraft, FlexRadio, and others. RigCheck ships quick-start presets for the most common rigs so the right settings are one click away. If yours is missing and you know the settings that work, a preset contribution takes five minutes and helps the next operator with the same radio.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-transmit">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Will RigCheck change my radio's settings or transmit?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No. The standard tests only <em>read</em> from the radio &mdash; frequency, mode, VFO, S-meter, and whether PTT is currently keyed. RigCheck never keys the transmitter. One optional test briefly changes the VFO frequency by 1 kHz to confirm the radio accepts commands, then restores the original frequency; it is off by default and asks for confirmation before running.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-port-in-use">
+          <button class="faq-question" type="button" aria-expanded="false">
+            RigCheck says the COM port is already in use. What does that mean?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Only one program can hold a serial port at a time. If WSJT-X, Fldigi, JS8Call, Winlink, or a rig-control server such as rigctld or Flrig is running, it owns the port and RigCheck cannot open it. Close the other program, or disconnect rig control inside it, then try again. That is usually not a fault &mdash; it means your rig control already works through that program.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-firewall">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Windows Firewall asked me about rigctld. What should I click?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>RigCheck itself never opens a network port, so Windows Firewall will not ask about RigCheck. If RigCheck suggested starting <strong>rigctld</strong> (Hamlib's rig-control server) and Windows then asks about <em>rigctld.exe</em>, that is expected: rigctld listens for connections. Tick <strong>Private networks</strong> and click <strong>Allow access</strong>. You do not need to allow it on public networks. If you clicked Cancel in the past, Windows created a Block rule and rigctld will silently fail until that rule is removed in Windows Firewall settings.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-data">
+          <button class="faq-question" type="button" aria-expanded="false">
+            What information does RigCheck send, and can I see it?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Nothing unless you say yes. On first launch RigCheck asks whether it may send anonymous diagnostic reports, and you can change the answer in Settings at any time. If enabled, it sends the RigCheck and Windows versions, whether Hamlib was found, and after each test run the radio model, serial settings, USB cable identifiers, and which tests passed or failed. That is exactly the data that improves the radio and cable database for everyone.</p>
+            <p>Never sent: your callsign, computer name, file paths, serial numbers, or IP address. The only identifier is a random ID created on first run, shown as a Support ID in Help &rsaquo; About. Every report is also kept on your PC and can be read under <strong>Help &rsaquo; View collected data</strong>. See the <a href="/privacy/">Privacy page</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" id="rigcheck-translate">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Can I help translate RigCheck into my language?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, and you do not need to be a programmer. RigCheck keeps all of its text in one file, <code>Strings.resx</code>. To translate, copy that file, name it for your language (for example <code>Strings.de.resx</code>), translate the text between the <code>&lt;value&gt;</code> tags, and open a pull request &mdash; or attach the file to a GitHub issue if you prefer. Machine translation is a fine starting point; a native-speaking ham correcting the radio terms is what makes it good.</p>
+            <p>Translators are credited by name and callsign in <strong>Help &rsaquo; About</strong> and in the repository. Product names like ShackDesk, RigCheck, and Hamlib stay in English, and ham terms like CAT, PTT, and VFO are usually left as your local club says them. The full guide and glossary are in <a href="https://github.com/Computer-Tsu/ShackDesk-RigCheck/blob/develop/TRANSLATING.md" target="_blank" rel="noopener">TRANSLATING.md</a>.</p>
           </div>
         </div>
 
@@ -233,7 +316,7 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Some ShackDesk apps are open source. PortPane source code is publicly available on GitHub under the MIT License. You are free to inspect, build, and contribute to that code. See each app's page or repository for current licensing details.</p>
+            <p>Yes. PortPane source code is publicly available on GitHub under the MIT License, and RigCheck under the GNU General Public License v3. You are free to inspect, build, and contribute to either. See each app's repository for current licensing details.</p>
           </div>
         </div>
 
@@ -243,7 +326,7 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Contributions are welcome. See the CONTRIBUTING.md file in each app's GitHub repository for guidelines. Community-maintained data files — such as the USB device database — are especially appreciated.</p>
+            <p>Contributions are welcome, and most do not require programming. Translations, radio presets, and USB device database entries are the most valuable, and each app's CONTRIBUTING.md and TRANSLATING.md explain how. Contributors are credited in the app and the repository.</p>
           </div>
         </div>
 
@@ -253,7 +336,7 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Yes. PortPane can be used by individual operators, clubs, and EMCOMM groups. ShackDesk also offers optional registration, personalization, and support for official builds.</p>
+            <p>Yes. ShackDesk apps can be used by individual operators, clubs, and EMCOMM groups. RigCheck's exported test log is written for exactly that setting: a plain-text file a member can hand to the club's Elmer or post to a forum. ShackDesk also offers optional registration, personalization, and support for official PortPane builds.</p>
           </div>
         </div>
 
