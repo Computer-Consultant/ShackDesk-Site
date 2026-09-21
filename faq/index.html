@@ -220,6 +220,16 @@
           </div>
         </div>
 
+        <div class="faq-item" id="rigcheck-dummy-rig">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Every test passes, but my radio isn't doing anything. Why?
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Hamlib includes a built-in <strong>Dummy</strong> radio (model number 1) that answers every command with made-up but plausible values. It exists so developers can test without hardware. If it is selected &mdash; for example by following an online example that uses <code>rigctl -m 1</code> &mdash; everything looks perfect and nothing is ever sent to your real radio. RigCheck will not run its tests against the Dummy radio; make sure the model shown at the top of the results is your actual rig.</p>
+          </div>
+        </div>
+
         <div class="faq-item" id="rigcheck-port-in-use">
           <button class="faq-question" type="button" aria-expanded="false">
             RigCheck says the COM port is already in use. What does that mean?
