@@ -53,7 +53,7 @@
           </button>
           <div class="faq-answer">
             <p>ShackDesk apps are designed to work fully offline. No internet connection is required for any core feature. Apps will never silently connect to any server without your knowledge.</p>
-            <p>The only optional network activity is anonymous telemetry, which is strictly opt-in and disabled by default. You can review exactly what would be sent before anything leaves your machine using <strong>Help → View Collected Data</strong>.</p>
+            <p>The only optional network activity is anonymous diagnostics. Each app asks on first launch, and nothing is sent until you confirm; on test builds the option is pre-selected in that dialog, on stable releases it is not. You can change the choice in Settings and review every report under <strong>Help → View Collected Data</strong>. RigCheck also checks for a newer version only when you ask it to.</p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Requirements vary by app. PortPane requires Windows 10 or Windows 11 (64-bit). Check each app's release page for specific system requirements.</p>
+            <p>PortPane and RigCheck both run on Windows 10 (version 21H2 or later) and Windows 11, 64-bit. Windows 11 on ARM runs them through its built-in x64 emulation. Windows 7 and 8.1 are not supported. MarkMySpot is a web app and runs in any modern browser.</p>
           </div>
         </div>
 
@@ -101,7 +101,7 @@
             <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>PortPane requires the .NET 8 runtime, which ships with Windows 11. On Windows 10, Windows will prompt you to download it automatically if it is not already present. No third-party software is required.</p>
+            <p>No. PortPane and RigCheck each carry the .NET runtime inside their own exe, so there is nothing to install first &mdash; no .NET download, no Visual C++ package. The one thing RigCheck needs that it does not bring along is Hamlib, which most digital-mode operators already have from WSJT-X or Fldigi.</p>
           </div>
         </div>
 
@@ -365,7 +365,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>© 2025 Mark McDow, N4TEK — My Computer Guru LLC</span>
+      <span>© 2025–2026 Mark McDow, N4TEK — My Computer Guru LLC</span>
       <ul class="footer-links">
         <li><a href="/about/">About</a></li>
         <li><a href="/faq/">FAQ</a></li>
